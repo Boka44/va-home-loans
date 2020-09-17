@@ -1,0 +1,68 @@
+@import '../style/app.variables';
+
+.page-wrapper{
+    margin-top: $nav-height;
+}
+  
+.navbar-container {
+    // font-family: $medium-font;
+    height: $nav-height;
+    display: flex;
+    // position: relative;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+
+    .logo {
+        margin-left: 5%;
+        padding: 10px;
+        height: $nav-height - 20px;
+        width: 30%;
+
+        img {
+            height: $nav-height - 20;
+        }
+    }
+    
+    ul {
+        margin: auto;
+        display: flex;
+        width: 40%;
+        padding-left: 0px;
+
+        li {
+
+            list-style-type: none;
+            width: 40%;
+
+            a {
+                color: black;
+                text-decoration: none;
+            }
+            
+
+            .active {
+                color: blue;
+            }
+        }
+    }
+    
+    .nav-action {
+        width: 30%;
+        margin: auto;
+        
+        button {
+            float: right;
+            margin-right: 10%;
+
+            font-weight: bold;
+            border-radius: 30px;
+            color: white;
+            padding: 20px 40px 20px 40px;
+            border: blue 1px solid;
+            background-color: blue;
+        }
+    }
+}

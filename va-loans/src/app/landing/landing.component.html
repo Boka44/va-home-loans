@@ -1,1 +1,33 @@
-<p>landing works!</p>
+<div class="page-wrapper">
+    <!-- Hero Section -->
+    <div class="hero container-fluid">
+        <div class="row">
+            <div class="col-md hero-content">
+                <ngb-carousel >
+                    <ng-container *ngFor="let slide of slides">
+                        <ng-template ngbSlide>
+                            <div class="picsum-img-wrapper">
+                                <img [src]="slide" alt="..." class="img-fluid">
+                            </div>
+                            </ng-template>
+                    </ng-container>
+                </ngb-carousel>
+                <div class="container hero-box">
+                    <div class="hero-header">
+                        {{hero-title}}
+                        <br>
+                        TALENT ROSTER
+                    </div>
+                    <hr class="lines">
+                    <p>Award-winning Media Group bringing the best digital talent to all brands.</p>
+                    <div class="social">
+                        <fa-icon [icon]="faFacebookF"></fa-icon>
+                        <fa-icon [icon]="faInstagram"></fa-icon>
+                        <fa-icon [icon]="faYoutube"></fa-icon>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
