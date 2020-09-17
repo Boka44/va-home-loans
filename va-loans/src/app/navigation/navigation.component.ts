@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _eref:ElementRef) { }
 
   ngOnInit(): void {
   }
 
+  navToggle = false;
+
+  toggleNav() {
+    this.navToggle = !this.navToggle;
+  }
+
+  closeNav() {
+    this.navToggle = false;
+  }
+  
 }

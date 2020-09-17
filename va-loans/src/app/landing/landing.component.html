@@ -1,4 +1,11 @@
 <div class="page-wrapper">
+
+    <!-- Alert Section -->
+    <div class="alert text-center">
+        {{alert_text}}
+        <a routerLink="/qualify/certificate-of-eligibility">Click Here</a>
+    </div>
+
     <!-- Hero Section -->
     <div class="hero container-fluid">
         <div class="row">
@@ -12,22 +19,25 @@
                             </ng-template>
                     </ng-container>
                 </ngb-carousel>
+                <div class="container rates-box">
+                    <div class="rates-content text-center">
+                        <div>30-YR VA2.651%</div> <div class="rate">+0.004</div>
+                    </div>
+                    
+                </div>
                 <div class="container hero-box">
                     <div class="hero-header">
-                        {{hero-title}}
-                        <br>
-                        TALENT ROSTER
+                        {{hero_title}}
                     </div>
-                    <hr class="lines">
-                    <p>Award-winning Media Group bringing the best digital talent to all brands.</p>
-                    <div class="social">
-                        <fa-icon [icon]="faFacebookF"></fa-icon>
-                        <fa-icon [icon]="faInstagram"></fa-icon>
-                        <fa-icon [icon]="faYoutube"></fa-icon>
+                    <!-- <hr class="lines"> -->
+                    <div class="call-to-action">
+                        <button class="btn btnGreen" routerLink="/qualify/apply">Apply</button>
+                        <button class="btn btnGreen" routerLink="/qualify/book-appointment">Book an Appointment</button>
                     </div>
                 </div>
                 
             </div>
         </div>
     </div>
+    <button class="btn btnGreen">test</button>
 </div>

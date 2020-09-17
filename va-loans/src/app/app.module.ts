@@ -31,7 +31,7 @@ const routes: Routes = [
     path: '', 
     component: NavigationComponent,
     children: [
-      { path: '', component: LandingComponent },
+      { path: 'home', component: LandingComponent },
       { path: 'team', component: TeamComponent },
       { path: 'qualify', 
         component: ServicesComponent,
@@ -49,7 +49,7 @@ const routes: Routes = [
       { path: '',   redirectTo: '/creative-landing', pathMatch: 'full' }, 
     ]
   },
-  { path: '', component: LandingComponent },
+  { path: 'home', component: LandingComponent },
   { path: 'team', component: TeamComponent },
   { path: 'qualify', component: ServicesComponent },
   { path: 'apply', component: ApplyComponent },
@@ -59,6 +59,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog-post', component: BlogPostComponent },
   { path: 'condos', component: CondosComponent },
+  { path: 'mortgage-calculator', component: MortgageCalcComponent },
   { path: '',   redirectTo: '/', pathMatch: 'full' }, 
   { path: '**', component: PageNotFoundComponent },
 ];

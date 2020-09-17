@@ -26,12 +26,14 @@ export class LandingComponent implements OnInit {
   ];
 
   // talent = [[]];
+  alert_text = "Are you looking for a certificate of eligibility?"
   hero_title = "VA Home Loans";
-  video_title = "";
+  video_title = "Meet Your Lender";
   video_link = "";
   newsletter_title = "";
   newsletter_subtitle = "";
   contact_title = "";
+  contact_description = "";
 
 
   ngOnInit(): void {

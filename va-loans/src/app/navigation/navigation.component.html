@@ -1,10 +1,10 @@
 <div class="navbar-container">
     <div class="logo">
-        <!-- <img src="/assets/images/logo+UDG-480w.png" alt="UDG logo"> -->
+        <img src="/assets/images/logo.png" alt="Tidal Realty Logo">
     </div>
-    <ul>
+    <ul [ngClass]="{'responsive': navToggle}" (mouseover)="navToggle=true" (mouseout)="navToggle=false" (click)="closeNav()">
         <li>
-            <a routerLink="/" routerLinkActive="active">
+            <a routerLink="/home" routerLinkActive="active">
                 Home
             </a>
         </li>
@@ -13,7 +13,7 @@
                 Meet the Team
             </a>
         </li>
-        <li>
+        <li >
             <a routerLink="/qualify" routerLinkActive="active">
                 Do I Qualify?
             </a>
@@ -39,5 +39,8 @@
             </a>
         </li>
     </ul>
+    <div class="nav-toggle"> 
+        <img src="/assets/images/menu.png" (click)="toggleNav()">
+    </div>
 </div>
 <router-outlet></router-outlet>

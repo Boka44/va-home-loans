@@ -1,15 +1,68 @@
+// ******************************************************
+// 
+//  Global Variables
+// 
+// ******************************************************
+
 $nav-height: 100px;
 
 $hero-height: 800px;
 
+// ******************************************************
+// 
+//  Colors
+// 
+// ******************************************************
 
-// @font-face {
-//     font-family: "Poppins";
-//     src: url('../../assets/fonts/Poppins/Poppins-Medium.ttf');
-// }
+$green: #3AB92D;
 
-// $medium-font: 'Poppins';
+
+// ******************************************************
+// 
+//  Fonts
+// 
+// ******************************************************
+
+@font-face {
+    font-family: "Roboto";
+    src: url('../../assets/fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url('../../assets/fonts/Roboto/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url('../../assets/fonts/Roboto/Roboto-Bold.ttf');
+}
+
+$font: 'Roboto';
+$medium-font: 'Roboto-Medium';
+$bold-font: 'Roboto-Bold';
+
+// ******************************************************
+// 
+//  Global Classes
+// 
+// ******************************************************
 
 .page-wrapper{
     margin-top: $nav-height;
+}
+
+.btnGreen {
+    margin: 5px;
+    background-color: $green;
+    box-shadow: 5px 5px 10px grey;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    height: 45px;
+    width: 175px;
+
+    
 }
