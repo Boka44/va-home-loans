@@ -3,10 +3,50 @@
 //  Global Variables
 // 
 // ******************************************************
+@import '../../../node_modules/swiper/swiper.scss';
 
 $nav-height: 100px;
 
 $hero-height: 800px;
+
+@media (max-width: 1040px) {
+    $hero-height: 70%;
+}
+
+// ******************************************************
+// 
+//  mixins
+// 
+// ******************************************************
+
+
+@mixin hero-max-height($extra) {
+    @media(max-width: 1250px) {
+        max-height: 600px + $extra;
+    }
+
+    @media(max-width: 1050px) {
+        max-height: 540px + $extra;
+    }
+
+    @media(max-width: 750px) {
+        max-height: 450px + $extra;
+    }
+
+    @media(max-width: 650px) {
+        max-height: 400px + $extra;
+    }
+
+    @media(max-width: 600px) {
+        max-height: 360px + $extra;
+    }
+
+    @media(max-width: 550px) {
+        max-height: 320px + $extra;
+    }
+}
+
+
 
 // ******************************************************
 // 
@@ -15,6 +55,8 @@ $hero-height: 800px;
 // ******************************************************
 
 $green: #3AB92D;
+$dark-blue: #061D43;
+
 
 
 // ******************************************************
@@ -38,9 +80,21 @@ $green: #3AB92D;
     src: url('../../assets/fonts/Roboto/Roboto-Bold.ttf');
 }
 
+@font-face {
+    font-family: "Roboto-Light";
+    src: url('../../assets/fonts/Roboto/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-LightItalic";
+    src: url('../../assets/fonts/Roboto/Roboto-LightItalic.ttf');
+}
+
 $font: 'Roboto';
 $medium-font: 'Roboto-Medium';
 $bold-font: 'Roboto-Bold';
+$font-light: "Roboto-Light";
+$font-light-italic: "Roboto-LightItalic";
 
 // ******************************************************
 // 
@@ -55,7 +109,7 @@ $bold-font: 'Roboto-Bold';
 .btnGreen {
     margin: 5px;
     background-color: $green;
-    box-shadow: 5px 5px 10px grey;
+    box-shadow: 5px 5px 10px rgba($color: grey, $alpha: .6);
     border: none;
     border-radius: 15px;
     color: white;
@@ -64,5 +118,69 @@ $bold-font: 'Roboto-Bold';
     height: 45px;
     width: 175px;
 
+    @media (max-width: 900px) {
+        height: 37px;
+        // width: 140px;
+        font-size: 14px;
+    }
     
+}
+
+.header {
+    font-family:  $bold-font;
+    font-size: 70px;
+    color: $dark-blue;
+    margin: 25px;
+
+    @media (max-width: 900px) {
+        font-size: 50px;
+    }
+
+    @media(max-width: 700px) {
+        font-size: 30px;
+    }
+}
+
+.subtitle {
+    font-family:  $font-light-italic;
+    font-size: 40px;
+    color: darkgray;
+    margin: 25px;
+
+    @media (max-width: 900px) {
+        font-size: 30px;
+    }
+
+    @media(max-width: 700px) {
+        font-size: 25px;
+    }
+}
+
+.input {
+    border: darkgray 1px solid;
+    border-radius: 15px;
+    width: 40%;
+    margin-bottom: 10px;
+    outline:none;  
+    padding-left: 8px;
+    font-family: $font-light;
+
+    @media (max-width: 900px) {
+        width: 60%;
+    }
+}
+
+.bold {
+    font-family: $bold-font;
+}
+
+.line{
+    margin: auto;
+    width: 100%;
+    // position: absolute;
+    // top: 36%;
+    // left: 48%;
+    border-top: 4px solid $green;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

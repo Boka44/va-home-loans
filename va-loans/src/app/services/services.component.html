@@ -1,1 +1,38 @@
-<p>services works!</p>
+<div class="page-wrapper container-fluid">
+    <div class="row services-container">
+        <div class="col-md-2 col-sm-0">
+            
+        </div>
+        <div class="col-md-8 col-sm-12 services-router">
+            <div class="row service-tabs">
+                
+                    
+                    <a routerLink="/qualify/apply" routerLinkActive="active" class="col-sm-4 tab">
+                        <div class="title">
+                            Apply for a Loan
+                        </div>
+                    </a>
+                    
+                                <!-- { path: 'apply', component: ApplyComponent },
+                    { path: 'book-appointment', component: AppointmentComponent },
+                    { path: 'certificate-of-eligibility', component: CertificateComponent }, -->
+                    
+                    <a routerLink="/qualify/book-appointment" routerLinkActive="active" class="col-sm-4 tab">
+                        <div class="title">
+                            Book an Appointment
+                        </div>
+                    </a>
+                    <a routerLink="/qualify/certificate-of-eligibility" routerLinkActive="active" class="col-sm-4 tab">
+                        <div class="title">
+                            Certificate of Eligibility
+                        </div>
+                    </a>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-md-2 col-sm-0">
+            
+        </div>
+
+    </div>
+</div>

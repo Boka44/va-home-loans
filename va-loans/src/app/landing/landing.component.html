@@ -14,7 +14,7 @@
                     <ng-container *ngFor="let slide of slides">
                         <ng-template ngbSlide>
                             <div class="picsum-img-wrapper">
-                                <img [src]="slide" alt="..." class="img-fluid">
+                                <img [src]="slide" alt="..." class="">
                             </div>
                             </ng-template>
                     </ng-container>
@@ -39,5 +39,117 @@
             </div>
         </div>
     </div>
-    <button class="btn btnGreen">test</button>
+    
+    <!-- Video Section -->
+    <div class="video-section container-fluid">
+        <div class="header">
+            {{video_title}}
+        </div>
+        <div class="iframe embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" [src]=urlSafe frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="testimonial banner">
+        <div class="testimonial-container">
+
+
+            
+            <div  class="swiper-container" [swiper]="swiperConfig" [(index)]="swiperIndex">
+                <div class="swiper-wrapper">
+                  <div *ngFor="let card of testimonials" class="swiper-slide testimonial-card">
+                    <div class="content">
+                        <div class="img-wrapper">
+                            <img [src]="card.img" alt="">
+                        </div>
+                        <p class="quote">{{card.description}}</p>
+                        <p class="name">{{card.name}}</p>
+                        <p class="location">{{card.city}} {{card.state}}</p>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                
+              </div>
+
+        </div>
+    </div>
+
+    <!-- Subscribe Section -->
+
+    <div class="subscribe-container container">
+        <div class="subscribe-box">
+
+        </div>
+        <div class="header">{{newsletter_title}}</div>
+        <div class="subtitle">{{newsletter_subtitle}}</div>
+        <form id="contactForm" action="/api/contact" method="POST">
+            <input type="text" placeholder="Email" id="email" class="input" name="name" required data-error="Please enter your email">
+            <br>
+            <button class="btn btnGreen" type="submit">Submit</button>
+        </form>
+        
+    </div>
+
+    <!-- Contact Section -->
+
+    <div class="contact-container container-fluid">
+        <div class="row">
+            <div class=" col-lg-6 col-md-6 col-sm-12 text-container">
+
+                <div class="header">
+                    {{contact_title}}
+                </div>
+                <div class="description">
+                    {{contact_description}}
+                </div>
+                
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-container">
+                <div class="contact-block">
+                    <form id="contactForm" action="/api/contact" method="POST">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                          <div class="form-group">
+                            <input type="text" class="form-control input" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                            <div class="help-block with-errors"></div>
+                          </div>                                 
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                          <div class="form-group">
+                            <input type="text" placeholder="Your Phone Number" id="phone" class="form-control input" name="name" required data-error="Please enter your phone number">
+                            <div class="help-block with-errors"></div>
+                          </div> 
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input type="text" placeholder="Your Email" id="email" class="form-control input" name="name" required data-error="Please enter your email">
+                            <div class="help-block with-errors"></div>
+                          </div> 
+                        </div>
+                        
+                        <div class="col-md-12">
+                          <div class="form-group"> 
+                            <textarea class="form-control input" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
+                            <div class="help-block with-errors"></div>
+                          </div>
+                          <div class="submit-button text-center">
+                            <button class="btn btnGreen" id="submit" type="submit">Send Message</button>
+                            <div id="msgSubmit" class="h3 text-center hidden"></div> 
+                            <div class="clearfix"></div> 
+                          </div>
+                        </div>
+                      </div>            
+                    </form>
+                  </div>
+
+                
+            </div>
+        </div>
+
+    </div>
 </div>

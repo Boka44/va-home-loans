@@ -1,0 +1,95 @@
+@import '../style/app.variables';
+
+// ******************************************************
+// 
+//  Services Page
+// 
+// ******************************************************
+
+.services-container {
+    background-color: #CBCDD3;
+    // width: 100%;
+    height: 76vh;
+
+    .services-router {
+        background-color: white;
+        width: 100%;
+        height: 70%;
+        margin-top: 100px;
+        
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+
+        @media (max-width: 767px) {
+            margin-top: 0 !important;
+            height: 100%;
+        }
+
+        .service-tabs {
+            // background-color: $dark-blue;
+            // text-decoration: none;
+            text-align: center;
+            height: 60px;
+
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+
+            .col-sm-4 {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+            
+            .active {
+                background-color: white !important;
+                div {
+                  color: $dark-blue !important;  
+                }
+                
+            }
+            
+            
+            .tab {
+                background-color: $dark-blue;
+                width: calc(100% / 3);
+                text-decoration: none;
+                height: 60px;
+                background-clip: padding-box !important;
+
+                
+
+                :hover {
+                    // padding-left: 0px !important;
+                    // padding-right: 0px !important;
+                    // padding: 0 !important;
+                    background-color: $green;
+                    color: white !important;
+                    transition: 1s ease-in all;
+                    cursor: pointer;
+                    text-decoration: none ;
+                    // background-clip: padding-box;
+                }
+
+
+                div {
+                    // padding-top: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    color: white;
+                    font-size: 20px;
+                    
+                    @media (max-width: 767px) {
+                        font-size: 15px;
+                        
+                    }
+
+                    
+                }
+            }
+
+            
+            
+        }
+    }
+}

@@ -44,3 +44,36 @@
     </div>
 </div>
 <router-outlet></router-outlet>
+
+<!-- Footer -->
+
+<div class="footer">
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="map">
+                <img src="../../assets/images/trmap.png" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="address">
+                {{address}}
+                <br>
+                {{phone}}
+                <br>
+                {{email}}
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="newsletter">
+                <div class="header">
+                    Join our Newsletter!
+                </div>
+                <form id="contactForm" action="/api/contact" method="POST">
+                    <input type="text" placeholder="Email" id="email" class="input" name="name" required data-error="Please enter your email">
+                    <button class="btn btnGreen" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="devdragon">Designed & Developed By DevDragon</div>
+    </div>
+</div>

@@ -1,1 +1,60 @@
-<p>team works!</p>
+<div class="page-wrapper">
+
+    <!-- Team Photo -->
+    <div class="team-photo">
+        <img [src]="image" alt="Team Photo" class="img-fluid">
+    </div>
+
+    <!-- Team Section -->
+    <div>
+        <div class="header text-center">
+            {{title}}
+        </div>
+
+        <div class="team-container">
+            <div *ngFor="let person of team; let i = index" class="row team-member">
+                <!-- <div *ngIf="i % 2 == 0; else odd"> -->
+                    <div class="col-lg-6 col-sm-12 img-container">
+                        <div class="img-circle">
+                            <img [src]="person.img" class="img-fluid">
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-6 col-sm-12 content-container">
+                        <p class="header">{{person.name}}</p>
+                        <!-- <br> -->
+                        <div class="row">
+                            <div class="bullet"></div><p class="cred">{{person.credential}}</p>
+                        </div>
+                        
+                        <!-- <br> -->
+                        <div class="row">
+                            <p class="col-sm-2 bold">Pets:</p> <p class="col-sm-10">{{person.pets}}</p>
+                        </div>
+                        
+                        <!-- <br> -->
+                        <div class="row">
+                            <p class="col-sm-2 bold">Hobbies:</p> <p class="col-sm-10">{{person.hobbies}}</p>
+                        </div>
+                        <!-- <br> -->
+                        <p>{{person.bio}}</p>
+                        <!-- <br> -->
+                        <div class="row contact">
+                            <p class="col-sm-1 bold">Email: </p> <p class="col-sm-5">{{person.email}}</p><p class="col-sm-1 bold">Phone:</p> <p class="col-sm-5">{{person.phone}}</p>
+                        </div>
+
+                        <div class="line"></div>
+                            
+                    </div>
+                    
+                <!-- </div> -->
+                <!-- <ng-template #odd>
+                    odd
+                    
+                    {{person.name}}
+                </ng-template> -->
+            </div>
+
+        </div>
+    </div>
+</div>

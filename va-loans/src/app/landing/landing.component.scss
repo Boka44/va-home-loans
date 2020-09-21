@@ -1,20 +1,5 @@
 @import '../style/app.variables';
 
-.lines{
-    margin: auto;
-    width: 90px;
-    // position: absolute;
-    // top: 36%;
-    // left: 48%;
-    border-top: 4px solid red;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.page-wrapper{
-    margin-top: $nav-height;
-}
-
 // ******************************************************
 // 
 //  Hero Area
@@ -35,6 +20,8 @@
     padding: 0px;
     overflow: hidden;
 
+    @include hero-max-height(0px);
+
     // font-family: $medium-font;
 
     .hero-content {
@@ -51,13 +38,42 @@
             .carousel-item.active {
               position: relative !important;
               opacity: 1;
+              overflow: hidden;
             }
 
             img {
                 position: relative;
-                width: -webkit-fill-available;
+                // width: auto;
+                width: -webkit-fill-available !important;
                 // top: -192px;
+                // height: auto !important;
                 filter: brightness(70%);
+                // height: -webkit-fill-available !important;
+                // width: 100%;
+                // min-width: 100%;
+                min-height: 100%;
+                // position: relative;
+                // width: -webkit-fill-available;
+                zoom: 1.1;
+                // zoom: 1.3;
+
+                @media (max-width: 1300px) {
+
+                    // margin-top: -250px; /* Half the height */
+                    margin-left: -200px; 
+                }  
+                @media (max-width: 900px) {
+
+                    // margin-top: -250px; /* Half the height */
+                    margin-left: -420px; 
+                } 
+                
+                @media (max-width: 600px) {
+
+                    margin-top: -150px; /* Half the height */
+                    margin-left: -600px; 
+                }    
+                
             }
           }
 
@@ -70,6 +86,11 @@
             border-radius: 15px;
             background-color: rgba($color: black, $alpha: .45);
 
+                @media (max-width: 900px) {
+                    height: 30px;
+                    width: 240px   
+                }
+
             // filter: brightness(40%);
 
             .rates-content {
@@ -78,8 +99,8 @@
                 font-size: 28px;
                 display: flex;
 
-                div {
-                    // width: 50%;
+                @media (max-width: 900px) {
+                    font-size: 20px; 
                 }
 
                 .rate{
@@ -96,6 +117,18 @@
             left: 25%;
             // border: orangered solid 3px;
 
+            @media (max-width: 935px) {
+                top: 15%   
+            }
+
+            @media (max-width: 800px) {
+                top: 12%   
+            }
+
+            @media (max-width: 700px) {
+                top: 9%   
+            }
+
             .hero-header {
                 color: white;
                 font-size: 60px;
@@ -105,6 +138,14 @@
                 // left: 34%;
                 text-align: center;
                 margin-bottom: 20px;
+                
+                @media (max-width: 800px) {
+                    font-size: 40px;
+                }
+
+                @media (max-width: 800px) {
+                    font-size: 30px;
+                }
             }
 
 
@@ -119,21 +160,9 @@
             .call-to-action {
                 text-align: center;
               
-            }
-
-            .social {
-                text-align: center;
-                color: white;
-                font-size: 30px;
-
-                fa-icon {
-                    padding: 13px;
-
-                }
-            }
-          }
-
-         
+            }   
+            
+        }
     }
 }
 
@@ -156,33 +185,279 @@
 // 
 // ******************************************************
 
+.video-section {
+    // margin: auto;
+    margin-top: 25px;
+    width: 90%;
+    text-align: center;
+    height: $hero-height + 50px;
+    @include hero-max-height(0px);
+    margin-bottom: 100px;
+        @media (max-width: 800px) {
+            margin-bottom: 0px;
+        }
+    
+    .iframe {
+        margin-top: 20px;
+        text-align: center;
+        margin: auto;
+        width: 76% !important;
+        margin-bottom: 30px;
+
+        iframe {
+        
+            max-height: 800px !important;
+            max-width: 1423px !important;
+        }
+    }
+    
+}
 
 // ******************************************************
 // 
-//  Banner 1
+//  Testimonials
 // 
 // ******************************************************
 
 .banner {
-    padding-bottom: 233px !important;
-    padding-top: 90px !important;
+    // padding-bottom: 233px !important;
+    // padding-top: 90px !important;
     background-attachment: fixed !important;
     background-size: cover !important;
-    height: 650px;
-    // background-image: url(../../assets/images/adventure.jpg);
-    // filter: brightness(70%);
+    background-position: center center;
+    // overflow: hidden;
+    position: relative;
+    // background-size: 100% !important;
+    background-repeat: no-repeat;
+    height: $hero-height +100;
+    // @include hero-max-height(100px);
+    background-image: url(../../assets/images/digital-loan.png);
+    filter: brightness(90%);
+    // background-color: rgba($color: rgb(14, 0, 136), $alpha: 1);
+    // @media(max-width: 400px) {
+    //     height: 400px;
+    // }
+    // zoom: 2;
     // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), url(../../assets/images/adventure.jpg));
 }
-.banner-box {
-    // height: 50%;
-    // width: 50%;
-    margin-top: auto;
-    padding-top: 85px;
+.testimonial {
+    .testimonial-container {
+        height: 70%;
+        width: 100%;
+        margin-top: auto;
+        padding-top: 85px;
+        text-align: center;
+        position: absolute;
+        top: 17%;
+        // left: 25%;
+        color: white;
+        // font-weight: bold;
+        font-size: 40px;
+
+        .swiper-container {
+            width: 80%;
+        }
+
+        .testimonial-card {
+            border-radius: 15px;
+            background-color: white;
+            height: 540px;
+            width: 300px;
+
+            .content {
+                margin: 40px;
+                height: 80%;
+                text-align: center;
+                width: 70%;
+                margin: 0 auto;   
+                // margin: auto;
+
+                .img-wrapper {
+                    
+                    // margin-left: 25%;
+                    margin: 15px auto;
+                    height: 200px;
+                    width: 200px;
+                    border-radius: 100px;
+                    border-color: $green;
+                    border-width: 1px;
+                    border: 5px solid $green;
+                    position: relative;
+                    // width: -webkit-fill-available;
+                    overflow: hidden;
+                    margin-bottom: 15px;
+                    
+                    img {
+                        position: relative;
+                        width: -webkit-fill-available;
+                        zoom: 1.1;
+                    }
+                }
+
+                .quote{
+                    color: darkgrey;
+                    font-size: 19px;
+                    font-family: $font-light-italic;
+                    margin-bottom: 20px;
+
+                    @media (max-width: 1300px) {
+                        font-size: 14px;
+                    }
+                }
+
+                .name {
+                    color: $dark-blue;
+                    font-family: $bold-font;
+                    font-size: 26px;
+                    margin-bottom: 0px;
+                }
+
+                .location {
+                    font-family: $font-light;
+                    font-size: 24px;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+ 
+// ******************************************************
+// 
+//  Subscribe
+// 
+// ******************************************************
+
+.subscribe-container {
+    height: $hero-height - 100px;
+    @include hero-max-height(0px);
     text-align: center;
-    // position: absolute;
-    // top: 17%;
-    // left: 25%;
-    color: white;
-    font-weight: bold;
-    font-size: 40px;
+
+    .subscribe-box {
+        margin-top: 20%;
+    }
+}
+
+// ******************************************************
+// 
+//  Contact Section
+// 
+// ******************************************************
+
+.contact-container {
+    background-color: $dark-blue;
+    height: $hero-height;
+    // text-align: center;
+    margin: 0 auto;
+
+    padding-left: 245px;
+
+        // max-width: 43% !important;
+
+        @media (max-width: 1300px) {
+            padding-left: 125px;
+        }
+
+        @media (max-width: 900px) {
+            padding-left: 50px;
+        }
+
+        @media (max-width: 767px) {
+            padding-left: 15px;
+            height: $hero-height + 250px;
+        }
+
+        @media (max-width: 400px) {
+            padding-left: 15px;
+        }
+
+    .text-container {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 80px;
+        // margin-left: 245px;
+
+        
+
+        .header {
+            font-size: 50px !important;
+            color: white !important;
+            margin-left: 0 !important;
+            font-family: $medium-font !important;
+        }
+
+        .description {
+            text-align: left;
+            font-size: 28px;
+            color: white;
+            width: 70%;
+
+            @media (max-width: 1600px) {
+                width: 80%;
+                font-size: 24px;
+            }
+
+            @media (max-width: 1300px) {
+                width: 80%;
+                font-size: 24px;
+            }
+
+            @media (max-width: 1094px) {
+                width: 90%;
+                font-size: 22px;
+            }
+
+            @media (max-width: 900px) {
+                width: 100%;
+                font-size: 20px;
+            }
+    
+            @media (max-width: 600px) {
+                width: 100%;
+                font-size: 14px;
+            }
+    
+           
+        }
+    }
+
+    .contact-block {
+        text-align: center;
+
+        background-color: white;
+        border-radius: 15px;
+        width: 80%;
+        padding: 50px 40px 20px 40px;
+        height: 70%;
+        margin-top: 150px;
+
+        @media (max-width: 1300px) {
+            margin-top: 130px;
+        }
+
+        @media (max-width: 900px) {
+            margin-top: 130px;
+            width: 90%;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 60px;
+            height: 90%;
+            width: 100%;
+        }
+
+        @media (max-width: 400px) {
+            margin-top: 40px;
+        }
+
+        .input {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .btnGreen {
+            float: left;
+        }
+    }
+    
 }

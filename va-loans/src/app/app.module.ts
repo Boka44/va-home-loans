@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 import { LandingComponent } from './landing/landing.component';
 import { TeamComponent } from './team/team.component';
@@ -36,6 +39,7 @@ const routes: Routes = [
       { path: 'qualify', 
         component: ServicesComponent,
         children: [
+          { path: '',   redirectTo: 'apply', pathMatch: 'full' }, 
           { path: 'apply', component: ApplyComponent },
           { path: 'book-appointment', component: AppointmentComponent },
           { path: 'certificate-of-eligibility', component: CertificateComponent },
@@ -46,7 +50,7 @@ const routes: Routes = [
       { path: 'blog-post', component: BlogPostComponent },
       { path: 'condos', component: CondosComponent },
       { path: 'mortgage-calculator', component: MortgageCalcComponent },
-      { path: '',   redirectTo: '/creative-landing', pathMatch: 'full' }, 
+      { path: '',   redirectTo: 'home', pathMatch: 'full' }, 
     ]
   },
   { path: 'home', component: LandingComponent },
@@ -60,10 +64,14 @@ const routes: Routes = [
   { path: 'blog-post', component: BlogPostComponent },
   { path: 'condos', component: CondosComponent },
   { path: 'mortgage-calculator', component: MortgageCalcComponent },
-  { path: '',   redirectTo: '/', pathMatch: 'full' }, 
+  { path: '',   redirectTo: 'home', pathMatch: 'full' }, 
   { path: '**', component: PageNotFoundComponent },
 ];
 
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
@@ -84,11 +92,17 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: false })],
+    [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: false, scrollPositionRestoration: 'enabled' })],
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    SwiperModule
   ],
-  providers: [],
+  providers: [
+    {
+    provide: SWIPER_CONFIG,
+    useValue: DEFAULT_SWIPER_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
