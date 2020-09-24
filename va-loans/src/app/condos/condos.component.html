@@ -1,1 +1,78 @@
-<p>condos works!</p>
+<div class="page-wrapper">
+    <!-- Hero Section -->
+    <div class="hero container-fluid">
+        <div class="row">
+            <div class="col-md hero-content">
+                
+                <div class="">
+                    <img [src]="img" alt="..." class="">
+                </div>
+                            
+                
+                <div class="container hero-box">
+                    <div class="hero-header">
+                        <div class="square"></div>{{title}}
+                    </div>
+                    <h2>
+                        {{subtitle}}
+                    </h2>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+
+    <div class="container">
+        
+        <!-- Filter -->
+        <div class="text-center filter">
+            <!-- <input placeholder="Search..." class="input"> -->
+         
+                <mat-form-field class="example-full-width" style="line-height: 28px; width: 400px;">
+                  <mat-label>Search</mat-label>
+                  <input matInput [formControl]=""
+                         placeholder="">
+
+                </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a filter</mat-label>
+                <mat-select [(value)]="selectedFilter.value">
+                <mat-option *ngFor="let filter of filters" [value]="filter.value">
+                    {{filter.name}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- Condos -->
+        <div *ngFor="let condo of condos" class="box row">
+            <div class="img-container col-lg-5 col-md-12">
+                <img [src]="condo.img" class="img-fluid">
+            </div>
+            <div class="content-container col-lg-7 col-md-12 row">
+                <!-- <div class="row"> -->
+                    <div class="col-md-9 col-9 address">{{condo.address}}, {{condo.city}}, {{condo.zip}}</div>
+                    <div class="col-md-3 col-3 price">${{condo.price}}</div>
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                    <p class="col-md-12 description ">{{condo.description}}</p>
+                <!-- </div> -->
+                
+                <!-- <div class="row"> -->
+                    <div class="col-md-3 col-4 detail">{{condo.beds}} Beds</div>
+                    <div class="col-md-3 col-4 detail">{{condo.baths}} Baths</div>
+                    <div class="col-md-3 col-4 detail">{{condo.square_feet}} ft2</div>
+                    <div class="col-md-3 col-12 button"><button class="btnGreen">View Listing</button></div>
+                <!-- </div> -->
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    
+</div>

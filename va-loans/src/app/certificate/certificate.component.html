@@ -1,1 +1,65 @@
-<p>certificate works!</p>
+<div class="cert-container">
+    <div class="background"></div>
+    <div class="row content">
+        <div class="col-lg-6 col-md-12 text-box">
+            <h1 class="">
+                {{title}}
+            </h1>
+            <h3>
+                {{subtitle}}
+            </h3>
+            <br>
+            <br>
+            <h2>
+                {{description_title}}
+            </h2>
+            <br>
+            <p>
+                {{description}}
+            </p>
+        </div>
+        <div class="col-lg-6 col-md-12 form-container">
+
+            <div class="contact-block">
+                <form id="contactForm" action="/api/contact" method="POST">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control input" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                        <div class="help-block with-errors"></div>
+                      </div>                                 
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                      <div class="form-group">
+                        <input type="text" placeholder="Your Phone Number" id="phone" class="form-control input" name="name" required data-error="Please enter your phone number">
+                        <div class="help-block with-errors"></div>
+                      </div> 
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input type="text" placeholder="Your Email" id="email" class="form-control input" name="name" required data-error="Please enter your email">
+                        <div class="help-block with-errors"></div>
+                      </div> 
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                          <input type="text" placeholder="Best Time to Reach You" id="time" class="form-control input" name="name" required data-error="Please enter the best time to reach you">
+                          <div class="help-block with-errors"></div>
+                        </div> 
+                      </div>
+                    
+                    <div class="col-md-12">
+                      <div class="submit-button text-center">
+                        <button class="btn btnGreen" id="submit" type="submit">Send Message</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div> 
+                        <div class="clearfix"></div> 
+                      </div>
+                    </div>
+                  </div>            
+                </form>
+              </div>
+
+        </div>
+    </div>
+</div>

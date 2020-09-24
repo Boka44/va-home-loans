@@ -8,6 +8,7 @@
 
 .apply {
     height: 100%;
+    padding-bottom: 75px;
 
     .content {
         height: 80%;
@@ -19,7 +20,89 @@
         div {
             height: 100%;
             width: 100%;
-            background-color: grey;
+            // background-color: grey;
+            margin: 0 auto;
+
+            img {
+                margin-top: 50px;
+                // height: 300px;
+                width: 100%;
+                height: auto;
+                filter: brightness(0.8);
+
+                @media (max-width: 900px) {
+                    margin-top: 20px;
+                    width: 100%;
+                    height: auto;
+                }
+
+
+            }
+
+            .img-box {
+                position: absolute;
+                    margin-top: 50px;
+                    color: white;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+
+                p {
+                    // width: 80%;
+                    // margin: 0 auto;
+                    // text-align: center;
+                    font-size: 25px;
+                    font-family: $bold-font; 
+                    padding-top: 23%;
+                    
+                    @media (max-width: 900px) {
+                        padding-top: 18%;
+                    }
+                }
+                
+                @media (max-width: 900px) {
+                    margin-top: 20px;
+                    left: 0;
+                    top: 12%;
+                }
+            }
         }
+
+        .text-box {
+            padding: 50px;
+
+            @media (max-width: 1500px) {
+                padding: 0px;
+                padding-left: 30px;
+            }
+
+            @media (max-width: 900px) {
+                padding: 0px;
+                padding-left: 0px;
+                padding-top: 15px;
+            }
+            
+            .header {
+                font-size: 45px;
+
+                @media (max-width: 1340px) {
+                    font-size: 40px;
+                }
+
+                @media (max-width: 900px) {
+                    font-size: 32px;
+                }
+            }
+
+            .text-grey {
+                text-align: left;
+            }
+
+            .btnGreen {
+                outline: none;
+            }
+
+        }
+
     }
 }

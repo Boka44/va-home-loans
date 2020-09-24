@@ -1,0 +1,268 @@
+@import '../style/app.variables';
+
+.page-wrapper {
+    background-color: #F7F7F7 !important;
+}
+
+// ******************************************************
+// 
+//  Hero Area
+// 
+// ******************************************************
+
+.alert {
+    margin-bottom: 0px !important;
+    background-color: $green;
+    color: white;
+    border-radius: 0;
+}
+
+.hero {
+    height: $hero-height;
+    // border: orangered 3px solid;
+    background-image: url();
+    padding: 0px;
+    overflow: hidden;
+
+    @include hero-max-height(0px);
+
+    // font-family: $medium-font;
+
+    .hero-content {
+        height: $hero-height;
+
+        ::ng-deep {
+            .carousel-item {
+              transition: opacity 0.7s ease !important;
+              position: absolute !important;
+              display: block !important;
+              opacity: 0;
+            }
+          
+            .carousel-item.active {
+              position: relative !important;
+              opacity: 1;
+              overflow: hidden;
+            }
+
+            img {
+                position: relative;
+                // width: auto;
+                width: -webkit-fill-available !important;
+                // top: -192px;
+                // height: auto !important;
+                filter: brightness(70%);
+                // height: -webkit-fill-available !important;
+                // width: 100%;
+                // min-width: 100%;
+                min-height: 100%;
+                // position: relative;
+                // width: -webkit-fill-available;
+                zoom: 1.1;
+                // zoom: 1.3;
+
+                @media (max-width: 1300px) {
+
+                    // margin-top: -250px; /* Half the height */
+                    margin-left: -200px; 
+                }  
+                @media (max-width: 900px) {
+
+                    // margin-top: -250px; /* Half the height */
+                    margin-left: -420px; 
+                } 
+                
+                @media (max-width: 600px) {
+
+                    margin-top: -150px; /* Half the height */
+                    margin-left: -600px; 
+                }    
+                
+            }
+          }
+
+          
+          .hero-box {
+            height: 50%;
+            width: 50%;
+            position: absolute;
+            top: 35%;
+            left: 25%;
+            // border: orangered solid 3px;
+
+            @media (max-width: 935px) {
+                top: 15%;   
+            }
+
+            @media (max-width: 800px) {
+                top: 12%;   
+                width: 70%;
+            }
+
+            @media (max-width: 700px) {
+                top: 9%;
+                width: 70%;
+            }
+
+            .hero-header {
+                color: white;
+                font-size: 60px;
+                font-weight: bold;
+                // position: absolute;
+                // top: 17%;
+                // left: 34%;
+                // text-align: center;
+                margin-bottom: 5px;
+                display: flex;
+                
+                @media (max-width: 800px) {
+                    font-size: 40px;
+                }
+
+                @media (max-width: 600px) {
+                    font-size: 24px;
+                }
+
+                .square {
+                    width: 10px;
+                    height: 68px;
+                    background-color: $green;
+                    margin-top: 15px;
+                    margin-right: 10px;
+
+                    @media (max-width: 800px) {
+                        margin-top: 8px;
+                        height: 50px;
+                    }
+    
+                    @media (max-width: 600px) {
+                        margin-top: 3px;
+                        height: 35px;
+                    }
+    
+                }
+            }
+
+            h2 {
+                color: white;
+                margin-bottom: 24px;
+
+                @media (max-width: 800px) {
+                    font-size: 16px;
+                }
+            }
+
+
+            p {
+                text-align: center;
+                font-size: 28px;
+                color: white;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .search {
+                // text-align: center;
+                .input {
+
+                    @media (max-width: 600px) {
+                        width: 80%;
+                    }
+                }
+              
+            }   
+            
+        }
+    }
+}
+
+// ******************************************************
+// 
+//  Condos Area
+// 
+// ******************************************************
+
+.box {
+    // height: 300px;
+    // overflow: hidden;
+    margin-top: 50px;
+    // display: flex;
+    background-color: white;
+    // margin-bottom: 40px;
+
+    .img-container {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+
+        @media (max-width: 979px) {
+            height: auto;
+            // height: 250px;
+        }
+
+    }
+
+    .content-container {
+        color: $dark-blue !important;
+        height: 300px;
+        padding: 20px;
+
+        @media (max-width: 979px) {
+            // height: auto;
+            height: 250px;
+        }
+
+        @media (max-width: 676px) {
+            height: 300px;
+        }
+
+        .address {
+            font-family: $bold-font;
+            font-size: 22px;
+
+            @media (max-width: 676px) {
+                font-size: 14px;          
+            }
+        }
+
+        .price {
+            color: $green;
+            font-size: 22px;
+ 
+            @media (max-width: 676px) {
+                font-size: 14px;  
+                float: right;        
+            }
+        }
+
+        .description {
+            font-family: $font-light-italic;
+            font-size: 18px;
+            
+            @media (max-width: 676px) {
+                margin-top: 5px;
+                font-size: 14px;  
+                // float: right;        
+            }
+        }
+
+        .detail {
+            font-family: $bold-font;
+            font-size: 20px;
+            line-height: 50px;
+        }
+
+
+        .button {
+
+            @media (max-width: 676px) {
+                text-align: center;
+                margin-top:20px;            
+            }
+
+            .btnGreen {
+                width: 150px;
+            }
+        }
+    }
+}

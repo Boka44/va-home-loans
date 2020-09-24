@@ -56,7 +56,7 @@ $hero-height: 800px;
 
 $green: #3AB92D;
 $dark-blue: #061D43;
-
+$text-color: #7F8082;
 
 
 // ******************************************************
@@ -109,14 +109,15 @@ $font-light-italic: "Roboto-LightItalic";
 .btnGreen {
     margin: 5px;
     background-color: $green;
-    box-shadow: 5px 5px 10px rgba($color: grey, $alpha: .6);
+    box-shadow: 5px 5px 10px rgba($color: grey, $alpha: .3);
     border: none;
     border-radius: 15px;
     color: white;
     font-size: 15px;
     text-align: center;
     height: 45px;
-    width: 175px;
+    width: 175px; 
+    outline: none;
 
     @media (max-width: 900px) {
         height: 37px;
@@ -183,4 +184,9 @@ $font-light-italic: "Roboto-LightItalic";
     border-top: 4px solid $green;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.text-grey {
+    color: #7F8082;
+    font-family: $font;
 }

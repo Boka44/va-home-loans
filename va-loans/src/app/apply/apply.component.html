@@ -1,7 +1,21 @@
 <div class="container-fluid apply">
     <div class="row content">
-        <div>
-            
+        <div class="col-lg-6 col-md-12">
+            <img [src]="img">
+            <div class="img-box">
+                <p class="text-center">
+                    {{img_title}}
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 text-box text-center">
+            <h1 class="header ">
+                {{title}}
+            </h1>
+            <p class="text-grey">
+                {{description}}
+            </p>
+            <button class="btnGreen">Apply Now</button>
         </div>
     </div>
 </div>

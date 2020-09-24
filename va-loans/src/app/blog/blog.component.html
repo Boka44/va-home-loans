@@ -1,1 +1,59 @@
-<p>blog works!</p>
+<div class="page-wrapper">
+    <!-- Hero Section -->
+    <div class="hero container-fluid">
+        <div class="row">
+            <div class="col-md hero-content">
+                
+                <div class="">
+                    <img [src]="img" alt="..." class="">
+                </div>
+                            
+                
+                <div class="container hero-box">
+                    <div class="hero-header">
+                        <div class="square"></div>{{title}}
+                    </div>
+                    <h2>
+                        {{subtitle}}
+                    </h2>
+                    <!-- <hr class="lines"> -->
+                    <div class="search">
+                        <!-- <input placeholder="Search..." class="input"> -->
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <mat-form-field class="example-full-width" style="line-height: 28px; width: 400px;">
+            <mat-label>Search</mat-label>
+            <input matInput [formControl]=""
+                placeholder="">
+
+        </mat-form-field>
+    </div>
+    
+
+    <!-- Blog Posts -->
+    <div class="blog-posts container">
+
+        <!-- <div class="post">
+
+        </div> -->
+       
+
+            <div *ngFor="let group of postsNestedArr" class="row" style="margin: 0px;"> 
+                <div *ngFor="let post of group" class="col-lg-6 col-md-12 img-container post">
+                    <img [src]="post.img" class="img-fluid">
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.content}}</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            
+  
+    </div>
+</div>

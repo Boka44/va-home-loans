@@ -11,7 +11,10 @@
     width: 100%;
     background-color: white;
     color: #7F8082;
-
+            :hover {
+                color: $green !important;
+                transition: ease-in-out .2s all;
+            }
     .logo {
         margin-left: 5%;
         padding: 10px;
@@ -40,6 +43,8 @@
                 color: #7F8082;
                 font-size: 20px;
                 text-decoration: none;
+
+                
             }
             
 
@@ -126,7 +131,8 @@
         }
 
         ul {
-            transition: all .3s linear; 
+            // transition: height .8s linear; 
+            transition: opacity .6s linear; 
             visibility: hidden;
             opacity: 0;
             background-color: white !important;
@@ -147,6 +153,8 @@
                     width: 100%;
                     font-size: 12px;
                     padding-bottom: 9px;
+
+                    
                  }
             }
         }

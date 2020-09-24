@@ -9,13 +9,21 @@
 .services-container {
     background-color: #CBCDD3;
     // width: 100%;
-    height: 76vh;
+    // height: 76vh;
+    padding-bottom: 115px;
+
+    @media (max-width: 767px) {
+        // margin-top: 0 !important;
+        // height: 100%;
+        padding-bottom: 0px;
+    }
 
     .services-router {
         background-color: white;
         width: 100%;
         height: 70%;
         margin-top: 100px;
+        // padding-bottom: 75px;
         
         padding-left: 0px !important;
         padding-right: 0px !important;
@@ -23,6 +31,7 @@
         @media (max-width: 767px) {
             margin-top: 0 !important;
             height: 100%;
+            // padding-bottom: 0px;
         }
 
         .service-tabs {
@@ -63,7 +72,7 @@
                     // padding: 0 !important;
                     background-color: $green;
                     color: white !important;
-                    transition: 1s ease-in all;
+                    transition: .4s ease-in-out all;
                     cursor: pointer;
                     text-decoration: none ;
                     // background-clip: padding-box;
