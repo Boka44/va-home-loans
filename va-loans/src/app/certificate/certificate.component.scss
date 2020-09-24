@@ -59,10 +59,14 @@
             }
 
             h3 {
-
+                font-family: $font-medium-italic;
                 @media (max-width: 1350px) {
                     font-size: 18px;
                 }
+            }
+
+            p {
+                font-family: $font-light-italic;
             }
 
             h2 {

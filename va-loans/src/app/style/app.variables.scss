@@ -90,8 +90,14 @@ $text-color: #7F8082;
     src: url('../../assets/fonts/Roboto/Roboto-LightItalic.ttf');
 }
 
+@font-face {
+    font-family: "Roboto-MediumItalic";
+    src: url('../../assets/fonts/Roboto/Roboto-MediumItalic.ttf');
+}
+
 $font: 'Roboto';
 $medium-font: 'Roboto-Medium';
+$font-medium-italic: 'Roboto-MediumItalic';
 $bold-font: 'Roboto-Bold';
 $font-light: "Roboto-Light";
 $font-light-italic: "Roboto-LightItalic";
