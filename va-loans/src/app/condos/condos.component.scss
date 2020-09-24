@@ -102,6 +102,7 @@
             @media (max-width: 700px) {
                 top: 9%;
                 width: 70%;
+                left: 19%;
             }
 
             .hero-header {
@@ -146,9 +147,11 @@
             h2 {
                 color: white;
                 margin-bottom: 24px;
+                
+                font-family: $font-light-italic;
 
                 @media (max-width: 800px) {
-                    font-size: 16px;
+                    font-size: 14px;
                 }
             }
 

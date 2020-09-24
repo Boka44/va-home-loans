@@ -11,6 +11,10 @@
     background-color: $green;
     color: white;
     border-radius: 0;
+
+    @media (max-width: 676px) {
+        font-size: 10px;
+    }
 }
 
 .hero {
@@ -190,9 +194,16 @@
     margin-top: 25px;
     width: 90%;
     text-align: center;
-    height: $hero-height + 50px;
-    @include hero-max-height(0px);
-    margin-bottom: 100px;
+    height: $hero-height;
+    @include hero-max-height(-40px);
+    margin-bottom: 40px;
+
+        @media (max-width: 2000px) {
+            margin-bottom: 80px !important;
+        }
+        @media (max-width: 1400px) {
+            margin-bottom: 40px !important;
+        }
         @media (max-width: 800px) {
             margin-bottom: 0px;
         }
@@ -202,8 +213,11 @@
         text-align: center;
         margin: auto;
         width: 76% !important;
-        margin-bottom: 30px;
-
+        margin-bottom: 10px;
+        @media (max-width: 676px) {
+            width: auto !important;
+        }
+        
         iframe {
         
             max-height: 800px !important;
@@ -384,6 +398,11 @@
             color: white !important;
             margin-left: 0 !important;
             font-family: $medium-font !important;
+
+            @media (max-width: 676px) {
+                // width: 100%;
+                font-size: 38px !important;
+            }
         }
 
         .description {
@@ -391,6 +410,8 @@
             font-size: 28px;
             color: white;
             width: 70%;
+
+            font-family: $font-light-italic;
 
             @media (max-width: 1600px) {
                 width: 80%;
@@ -428,7 +449,7 @@
         border-radius: 15px;
         width: 80%;
         padding: 50px 40px 20px 40px;
-        height: 70%;
+        height: 75%;
         margin-top: 150px;
 
         @media (max-width: 1300px) {
@@ -438,6 +459,7 @@
         @media (max-width: 900px) {
             margin-top: 130px;
             width: 90%;
+            height: 70%;
         }
 
         @media (max-width: 767px) {
