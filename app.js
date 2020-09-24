@@ -47,6 +47,11 @@ app.use((err, req, res, next) => {
     res.send(response);
 });
 
+app.all('*', (req, res) => {
+    console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
+    res.status(200).sendFile(__dirname + "/va-loans/dist/va-loans/index.html");
+  });
+
 // app.use(session({ 
 // 	secret: "itsASecretToEveryone",
 // 	resave: false,
