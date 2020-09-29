@@ -1,12 +1,10 @@
+const token = process.env.apiToken;
+
 module.exports = {
-    APP_NAME: 'Tracker',
-    mongoDb: {
-        db: '',
-        connectionString: '',
-        user: '',
-        password: ''
-    },
-    client: 'http://localhost:3000/',
-    sessionTokenExpiry: 604800 // 7 days * 24 hours * 60 mins * 60 secs.,
+    app_name: 'VA-Loans',
+    api_url: "3.13.119.108:8080",
+    api_url_path: "3.13.119.108:8080/tidal/",
+    api_url_graphql: "3.13.119.108:8080/tidal/gql",
+    api_token: token
 };
 

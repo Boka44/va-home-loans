@@ -22,8 +22,9 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+require('./config/env/development');
 
-// require('./api/routes/index')(app); uncomment when ready to sync data with directus
+require('./api/routes/index')(app);
 
 // error handler
 app.use((err, req, res, next) => {
