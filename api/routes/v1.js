@@ -1,5 +1,9 @@
 const router = require('express').Router();
 
+const homeController = require('../controllers/home');
+
+router.get('/home', homeController.getHomeData);
+
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');
 // const locationController = require('../controllers/location');

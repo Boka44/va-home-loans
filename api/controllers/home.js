@@ -1,4 +1,21 @@
+const homeService = require('../schemas/home');
 
+const homeController = () => { };
+
+homeController.getHomeData = (req , res, next) => {
+    homeService.getData()
+        .then((data) => {
+            res.status(200).send({
+                success: true,
+                data: data
+            })
+        })
+        .catch((err) => {
+            next(err);
+        })
+};
+
+module.exports = homeController;
 
 // retrieve home page data
 

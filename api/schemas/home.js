@@ -39,11 +39,11 @@ homeSchema.getData = () => {
                     
                 }
             }`
-    })
+    });
     axios.post(graphql_url, body, config)
         .then((res) =>{
             return res.body;
-        })
+        });
 };
 
 // 3.13.119.108:8080/tidal/items/home_page?fields=*,slider_images.img.data,testimonials.*
