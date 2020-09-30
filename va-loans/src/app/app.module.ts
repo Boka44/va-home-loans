@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
 
 import { LandingComponent } from './landing/landing.component';
 import { TeamComponent } from './team/team.component';
@@ -28,6 +29,8 @@ import { CondosComponent } from './condos/condos.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { LandingService } from './landing/landing.service';
 
 const routes: Routes = [
   // {
@@ -98,6 +101,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     BrowserModule,
     [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: false, scrollPositionRestoration: 'enabled' })],
     AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     SwiperModule,
     BrowserAnimationsModule,
@@ -109,7 +113,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     {
     provide: SWIPER_CONFIG,
     useValue: DEFAULT_SWIPER_CONFIG
-    }
+    },
+    LandingService
   ],
   bootstrap: [AppComponent]
 })

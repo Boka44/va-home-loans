@@ -79,7 +79,7 @@
                 }    
                 
             }
-          }
+        }
 
           .rates-box {
             height: 48px;
@@ -93,6 +93,23 @@
                 @media (max-width: 900px) {
                     height: 30px;
                     width: 240px   
+                }
+
+                ::ng-deep iframe {
+
+                        .tab-content {
+                            border: none !important;
+
+                            .flex-item {
+                                border: none !important; 
+                                align-items: normal !important;
+                            }
+                        }
+
+                        .footer {
+                            display: none;
+                        }
+                    
                 }
 
             // filter: brightness(40%);
@@ -290,9 +307,9 @@
                     
                     // margin-left: 25%;
                     margin: 15px auto;
-                    height: 200px;
-                    width: 200px;
-                    border-radius: 100px;
+                    height: 300px;
+                    width: 300px;
+                    border-radius: 300px;
                     border-color: $green;
                     border-width: 1px;
                     border: 5px solid $green;
@@ -305,17 +322,19 @@
                         position: relative;
                         width: -webkit-fill-available;
                         zoom: 1.1;
+                        margin-left: -16px;
                     }
                 }
 
                 .quote{
                     color: darkgrey;
-                    font-size: 19px;
+                    font-size: 16px;
                     font-family: $font-light-italic;
                     margin-bottom: 20px;
+                    height: 90px;
 
                     @media (max-width: 1300px) {
-                        font-size: 14px;
+                        font-size: 12px;
                     }
                 }
 
