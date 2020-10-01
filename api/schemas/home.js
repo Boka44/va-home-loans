@@ -6,7 +6,10 @@ const token = require('../../config/env/development').api_token;
 const homeSchema = () => { };
 
 const config = {
-    headers: { Authorization: `Bearer ${token}` }
+    headers: { 
+        Authorization: `Bearer ${token}`
+        // 'Content-Type': 'application/json'
+    }
 };
 
 homeSchema.getData = () => {
@@ -44,7 +47,7 @@ homeSchema.getData = () => {
                             contact_description
                         }
                     }
-                }`
+            }`
         };
         axios.post(graphql_url, body, config)
             .then((res) =>{
@@ -55,6 +58,14 @@ homeSchema.getData = () => {
             })
     })
 };
+
+// axios.get('http://3.13.119.108:8080/tidal/items/home_page?fields=*,slider_images.img.data,testimonials.*', config)
+//     .then((req) => {
+//         console.log(req.data)
+//     })
+//     .catch((err) => {
+//         return err;
+//     })
 
 // 3.13.119.108:8080/tidal/items/home_page?fields=*,slider_images.img.data,testimonials.*
 // everything but testimonial image link

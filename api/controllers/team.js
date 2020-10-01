@@ -1,9 +1,9 @@
-const homeService = require('../schemas/home');
+const teamService = require('../schemas/team');
 
-const homeController = () => { };
+const teamController = () => { };
 
-homeController.getHomeData = (req , res, next) => {
-    homeService.getData()
+teamController.getTeamData = (req , res, next) => {
+    teamService.getData()
         .then((data) => {
             res.status(200).send({
                 success: true,
@@ -15,16 +15,4 @@ homeController.getHomeData = (req , res, next) => {
         })
 };
 
-module.exports = homeController;
-
-// retrieve home page data
-
-// get home page slider images
-// 
-// items/home_page?fields=slider_images.*
-
-// get all testimonials
-
-// get image ids from testimonials
-
-// add each image url to testimonial
+module.exports = teamController;

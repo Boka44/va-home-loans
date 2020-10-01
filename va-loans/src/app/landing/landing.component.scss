@@ -8,12 +8,16 @@
 
 .alert {
     margin-bottom: 0px !important;
-    background-color: $green;
+    background-color: $dark-blue;
     color: white;
     border-radius: 0;
 
     @media (max-width: 676px) {
         font-size: 10px;
+    }
+
+    a {
+        color: $green !important;
     }
 }
 
@@ -276,7 +280,7 @@
         height: 70%;
         width: 100%;
         margin-top: auto;
-        padding-top: 85px;
+        // padding-top: 85px;
         text-align: center;
         position: absolute;
         top: 17%;
@@ -292,7 +296,7 @@
         .testimonial-card {
             border-radius: 15px;
             background-color: white;
-            height: 540px;
+            height: 600px;
             width: 300px;
 
             .content {
@@ -328,13 +332,13 @@
 
                 .quote{
                     color: darkgrey;
-                    font-size: 16px;
+                    font-size: 20px;
                     font-family: $font-light-italic;
                     margin-bottom: 20px;
-                    height: 90px;
+                    height: 130px;
 
                     @media (max-width: 1300px) {
-                        font-size: 12px;
+                        font-size: 16px;
                     }
                 }
 

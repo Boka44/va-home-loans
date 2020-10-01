@@ -3,48 +3,44 @@ const axios = require('axios');
 const graphql_url = require("../../config/env/development").api_url_graphql;
 const token = require('../../config/env/development').api_token;
 
-const homeSchema = () => { };
+const teamSchema = () => { };
 
 const config = {
     headers: { Authorization: `Bearer ${token}` }
 };
 
-homeSchema.getData = () => {
+teamSchema.getData = () => {
     return new Promise((resolve, reject) => {
         const body =  {
             query: `
             query {
-                    home_page {
-                        data {
-                            alert_text
-                            hero_title
-                            slider_images {
-                                img {
-                                    full_url
+                team_page {
+                    data {
+                        header_image {
+                            full_url
+                        }
+                        title
+                        
+                        team_members {
+                            name
+                            credential
+                            pets
+                            hobbies
+                            fun_fact
+                            bio
+                            email
+                            phone
+                            image {
+                                full_url
+                                thumbnails {
+                                    url
                                 }
                             }
-                            video_title
-                            video_link
-                            newsletter_title
-                            newsletter_subtitle
-                            testimonials {
-                                name
-                                city
-                                state
-                                description
-                                image {
-                                    full_url
-                                    thumbnails {
-                                        url
-                                    }
-                                }
-                                
-                            }
-                            contact_title
-                            contact_description
+                            
                         }
                     }
-                }`
+                }
+            }`
         };
         axios.post(graphql_url, body, config)
             .then((res) =>{
@@ -62,4 +58,4 @@ homeSchema.getData = () => {
 // items/home_page?fields=slider_images.*
 
 
-module.exports = homeSchema;
+module.exports = teamSchema;

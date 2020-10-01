@@ -1,8 +1,11 @@
 const router = require('express').Router();
 
 const homeController = require('../controllers/home');
+const teamController = require('../controllers/team');
 
 router.get('/home', homeController.getHomeData);
+
+router.get('/team', teamController.getTeamData);
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');

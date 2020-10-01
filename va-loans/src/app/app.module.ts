@@ -31,6 +31,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LandingService } from './landing/landing.service';
+import { TeamService } from './team/team.service';
 
 const routes: Routes = [
   // {
@@ -114,7 +115,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     provide: SWIPER_CONFIG,
     useValue: DEFAULT_SWIPER_CONFIG
     },
-    LandingService
+    LandingService,
+    TeamService
   ],
   bootstrap: [AppComponent]
 })
