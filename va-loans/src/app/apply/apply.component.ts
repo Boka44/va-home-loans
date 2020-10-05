@@ -16,7 +16,12 @@ export class ApplyComponent implements OnInit {
   img_title = "VA Loans Made Easy";
   title = "Do I Qualify?";
   description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd.";
-  link = "";
+  link = "https://www.financeany1.com/rpollorena/";
+
+  applyBtn() {
+    // console.log(this.link)
+    window.location.href = this.link;
+  }
 
   getApplyData() {
     this._applyService.getAllData()
@@ -26,6 +31,7 @@ export class ApplyComponent implements OnInit {
         this.img_title = data.image_title;
         this.title = data.title;
         this.description = data.description;
+        this.link = data.link;
         this.isLoaded = true;
       })
   }

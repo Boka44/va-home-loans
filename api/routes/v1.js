@@ -9,6 +9,7 @@ router.get('/home', homeController.getHomeData);
 router.get('/team', teamController.getTeamData);
 
 router.get('/qualify/apply', qualifyController.getApplyData);
+router.get('/qualify/cert', qualifyController.getCertData);
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');
