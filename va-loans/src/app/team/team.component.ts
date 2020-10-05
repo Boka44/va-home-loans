@@ -13,6 +13,7 @@ export class TeamComponent implements OnInit {
     private _teamService: TeamService
   ) { }
 
+  isLoaded = false;
   image = "";
   title = "";
 
@@ -149,6 +150,7 @@ export class TeamComponent implements OnInit {
             phone: i.phone
           })
         })
+        this.isLoaded = true;
       })
   }
 

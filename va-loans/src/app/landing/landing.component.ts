@@ -34,6 +34,8 @@ export class LandingComponent implements OnInit {
     config.showNavigationIndicators = false;
   }
 
+  isLoaded = false;
+
 
   swiperIndex = 2;
   swiperConfig :SwiperConfigInterface = {
@@ -148,6 +150,7 @@ export class LandingComponent implements OnInit {
             img: mediumContainImg
           });
         });
+        this.isLoaded = true;
       });
   }
 

@@ -2,10 +2,13 @@ const router = require('express').Router();
 
 const homeController = require('../controllers/home');
 const teamController = require('../controllers/team');
+const qualifyController = require('../controllers/qualify');
 
 router.get('/home', homeController.getHomeData);
 
 router.get('/team', teamController.getTeamData);
+
+router.get('/qualify/apply', qualifyController.getApplyData);
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');

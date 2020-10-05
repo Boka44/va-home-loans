@@ -1,4 +1,4 @@
-<div class="container-fluid apply">
+<div class="container-fluid apply" *ngIf="isLoaded; else loading">
     <div class="row content">
         <div class="col-lg-6 col-md-12">
             <img [src]="img">
@@ -15,7 +15,15 @@
             <p class="text-grey">
                 {{description}}
             </p>
-            <button class="btnGreen">Apply Now</button>
+            <button class="btnGreen" [href]="link">Apply Now</button>
         </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <div class="loader-wrapper" style="height: 50vh">
+      <div class="loader">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+</ng-template>
