@@ -1,5 +1,6 @@
 const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const morgan = require('morgan');
@@ -12,6 +13,9 @@ const fs = require('fs');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+app.use(cors());
+app.options('*', cors());
+
 app.use(express.static(path.join(__dirname, 'va-loans')));
 app.use('/', express.static('va-loans/dist/va-loans'));
 
@@ -22,11 +26,13 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
+
+
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// })
 
 require('./config/env/development');
 
