@@ -35,6 +35,7 @@ import { LandingService } from './landing/landing.service';
 import { TeamService } from './team/team.service';
 import { ApplyService } from './apply/apply.service';
 import { CertificateService } from './certificate/certificate.service';
+import { ContactService } from './contact/contact.service';
 
 import { CacheInterceptor } from '../assets/javascript/cache.interceptor';
 import { RequestCacheService } from '../assets/javascript/requestCache.service';
@@ -132,7 +133,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     LandingService,
     TeamService,
     ApplyService,
-    CertificateService
+    CertificateService,
+    ContactService
   ],
   bootstrap: [AppComponent]
 })

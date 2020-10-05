@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+<div class="page-wrapper" *ngIf="isLoaded; else loading">
     <div class="contact-container container-fluid">
         <div class="background"></div>
         <div class="row content">
@@ -60,3 +60,11 @@
         </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <div class="loader-wrapper">
+      <div class="loader">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+</ng-template>

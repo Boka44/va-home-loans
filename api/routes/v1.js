@@ -3,6 +3,7 @@ const router = require('express').Router();
 const homeController = require('../controllers/home');
 const teamController = require('../controllers/team');
 const qualifyController = require('../controllers/qualify');
+const contactController = require('../controllers/contact');
 
 router.get('/home', homeController.getHomeData);
 
@@ -10,6 +11,8 @@ router.get('/team', teamController.getTeamData);
 
 router.get('/qualify/apply', qualifyController.getApplyData);
 router.get('/qualify/cert', qualifyController.getCertData);
+
+router.get('/contact', contactController.getContactData);
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');
