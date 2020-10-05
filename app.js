@@ -26,9 +26,16 @@ require('./config/env/development');
 
 require('./api/routes/index')(app);
 
+app.use((req, res, next) => {
+    res.header("Access-Control_Allow_Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
+
 // error handler
 app.use((err, req, res, next) => {
     // set locals, only providing error in development
+
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'dev' ? err : {};
 
