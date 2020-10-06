@@ -308,7 +308,9 @@
                 // margin: auto;
 
                 .img-wrapper {
-                    
+                    @media (max-width: 500px) {
+                        margin-left: -15%;
+                    }
                     // margin-left: 25%;
                     margin: 15px auto;
                     height: 300px;

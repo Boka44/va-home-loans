@@ -4,6 +4,9 @@ const homeController = require('../controllers/home');
 const teamController = require('../controllers/team');
 const qualifyController = require('../controllers/qualify');
 const contactController = require('../controllers/contact');
+const blogController = require('../controllers/blog');
+const condoController = require('../controllers/condo');
+
 
 router.get('/home', homeController.getHomeData);
 
@@ -13,6 +16,10 @@ router.get('/qualify/apply', qualifyController.getApplyData);
 router.get('/qualify/cert', qualifyController.getCertData);
 
 router.get('/contact', contactController.getContactData);
+
+router.get('blog-page', blogController.getBlogPageData);
+
+router.get('condo-page', condoController.getCondoPageData);
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');

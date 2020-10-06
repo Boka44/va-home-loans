@@ -11,6 +11,7 @@
     width: 100%;
     // background-color: $dark-blue;
     height: 67vh;
+    min-height: 640px;
     padding-left: 200px;
     @media (max-width: 979px) {
         height: 86vh;
@@ -26,6 +27,7 @@
         width: calc(100% / 3 * 2 - 100px) ;
         background-color: $dark-blue;
         height: 60vh;
+        min-height: 600px;
 
         @media (max-width: 979px) {
             width: 100%;
@@ -44,6 +46,7 @@
             // padding-top: 40px;
             width: 100%;
             left: 15px;
+            top: 40px;
         }
         
         // border: 5px green solid;
