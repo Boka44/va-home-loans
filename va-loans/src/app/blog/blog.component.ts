@@ -35,7 +35,7 @@ export class BlogComponent implements OnInit {
         this.title = data.title;
         this.subtitle = data.subtitle;
         this.img = data.image.full_url;
-        // this.isLoaded = true;
+        this.isLoaded = true;
       })
   }
 
