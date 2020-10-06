@@ -17,9 +17,9 @@ router.get('/qualify/cert', qualifyController.getCertData);
 
 router.get('/contact', contactController.getContactData);
 
-router.get('blog-page', blogController.getBlogPageData);
+router.get('/blog-page', blogController.getBlogPageData);
 
-router.get('condo-page', condoController.getCondoPageData);
+router.get('/condo-page', condoController.getCondoPageData);
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');

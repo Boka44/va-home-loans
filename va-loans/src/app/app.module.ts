@@ -36,6 +36,8 @@ import { TeamService } from './team/team.service';
 import { ApplyService } from './apply/apply.service';
 import { CertificateService } from './certificate/certificate.service';
 import { ContactService } from './contact/contact.service';
+import { BlogService } from './blog/blog.service';
+import { CondosService } from './condos/condos.service';
 
 import { CacheInterceptor } from '../assets/javascript/cache.interceptor';
 import { RequestCacheService } from '../assets/javascript/requestCache.service';
@@ -134,7 +136,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     TeamService,
     ApplyService,
     CertificateService,
-    ContactService
+    ContactService,
+    BlogService,
+    CondosService
   ],
   bootstrap: [AppComponent]
 })

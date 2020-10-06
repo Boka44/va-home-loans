@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from './blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _blogService: BlogService
+  ) { }
 
   ngOnInit(): void {
+
+    this.getAllPageData();
+
     let j = 0;
     for(let i = 0; i < this.posts.length; i++) {
       if(i !== 0 && i % 4 == 0) {
@@ -18,7 +24,22 @@ export class BlogComponent implements OnInit {
       }
       this.postsNestedArr[j].push(this.posts[i]);
     }
+
+
   }
+
+  getAllPageData() {
+    this._blogService.getAllPageData()
+      .subscribe((result: any) => {
+        let data = result.data.data.blog_page.data[0];
+        this.title = data.title;
+        this.subtitle = data.subtitle;
+        this.img = data.image.full_url;
+        this.isLoaded = true;
+      })
+  }
+
+  isLoaded = false;
 
   title = "VA Loans Blog";
   subtitle = "Benefit news, VA Loan tips, and  personal finance help";

@@ -35,10 +35,4 @@ contactSchema.getContactData = () => {
 };
 
 
-// 3.13.119.108:8080/tidal/items/home_page?fields=*,slider_images.img.data,testimonials.*
-// everything but testimonial image link
-
-// items/home_page?fields=slider_images.*
-
-
 module.exports = contactSchema;

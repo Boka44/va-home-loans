@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { CondosService } from './condos.service';
 
 @Component({
   selector: 'app-condos',
@@ -8,10 +9,27 @@ import {FormControl} from '@angular/forms';
 })
 export class CondosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _condosService: CondosService
+  ) { }
 
   ngOnInit(): void {
+    this.getAllPageData();
   }
+
+  getAllPageData() {
+    this._condosService.getAllPageData() 
+      .subscribe((result: any) => {
+        let data = result.data.data.condo_page.data[0];
+        this.title = data.title;
+        this.subtitle = data.subtitle;
+        this.img = data.image.full_url;
+        this.isLoaded = true;
+      })
+  }
+
+  isLoaded = false;
+
   title = "VA Approved Condos";
   subtitle = "Condos pre approved for VA Loans";
   img = "/assets/images/hero-slider/1.jpg";
