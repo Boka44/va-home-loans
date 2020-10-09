@@ -29,4 +29,19 @@ blogController.getAllBlogPosts = (req , res, next) => {
         })
 };
 
+blogController.getAllBlogPostswithFilter = (req , res, next) => {
+    let pagination = req.query.pagination;
+    let filter = req.query.filter;
+    blogService.getBlogPostsWithFilter(pagination, filter)
+        .then((data) => {
+            res.status(200).send({
+                success: true,
+                data: data
+            })
+        })
+        .catch((err) => {
+            next(err);
+        })
+};
+
 module.exports = blogController;

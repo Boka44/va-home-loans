@@ -16,4 +16,8 @@ export class BlogService {
     getAllBlogPosts(pagination) {
         return this.http.get(environment.serverUrl + `/blog-posts?pagination=${pagination}`);
     }
+
+    getAllBlogPostsWithFilter(pagination, filter) {
+        return this.http.get(environment.serverUrl + `/blog-posts-filtered?pagination=${pagination}&filter=${filter}`);
+    }
 }

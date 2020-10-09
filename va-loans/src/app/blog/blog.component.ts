@@ -27,29 +27,43 @@ export class BlogComponent implements OnInit {
     if(this.totalCount === this.postsNestedArr.length) {
       return;
     }
-    this.pagination++
-    this._blogService.getAllBlogPosts(this.pagination)
-      .subscribe((result: any) => {
-        let data = result.data.data.blog_posts.data;
-        let j = 0;
-        for(let i = 0; i < data.length; i++) {
-          if(i !== 0 && i % 2 == 0) {
-            this.postsNestedArr.push([]);
-            j++;
-          }
-          this.postsNestedArr[j].push(data[i]);
-        }
-      })
+    this.pagination++;
+    if(this.isFiltered) {
+      this.getAllPostsWithFilter(this.pagination, this.searchInput);
+    } else {
+      this.getAllPosts(this.pagination);
+    }
+    
+    
+    // this._blogService.getAllBlogPosts(this.pagination)
+    //   .subscribe((result: any) => {
+    //     let data = result.data.data.blog_posts.data;
+    //     let j = 0;
+    //     for(let i = 0; i < data.length; i++) {
+    //       if(i !== 0 && i % 2 == 0) {
+    //         this.postsNestedArr.push([]);
+    //         j++;
+    //       }
+    //       this.postsNestedArr[j].push(data[i]);
+    //     }
+      // })
   }
 
   search() {
-    // console.log(this.searchInput)
-    // if(this.searchInput !== "") {
-
-    // } else {
-    //   this.pagination = 1;
-    //   this.getAllPosts(this.pagination)
-    // }
+    this.isLoadedPosts = false;
+    console.log(this.searchInput)
+    this.postsNestedArr.length = 0;
+    this.postsNestedArr = [[]];
+    console.log(this.postsNestedArr);
+    this.pagination = 1;
+    if(this.searchInput.length === 0) {
+      console.log(this.searchInput);
+      this.isFiltered = false;
+      this.getAllPosts(this.pagination);
+    } else {
+      this.isFiltered = true;
+      this.getAllPostsWithFilter(this.pagination, this.searchInput);
+    }
   }
 
   getAllPageData() {
@@ -71,6 +85,33 @@ export class BlogComponent implements OnInit {
         this.posts = data;
         this.totalCount = meta.total_count;
         let j = 0;
+        if(this.postsNestedArr[0].length != 1) {
+          j = this.postsNestedArr.length -1;
+        }
+        
+        for(let i = 0; i < this.posts.length; i++) {
+          if(i !== 0 && i % 2 == 0) {
+            this.postsNestedArr.push([]);
+            j++;
+          }
+          this.postsNestedArr[j].push(this.posts[i]);
+        }
+        this.isLoadedPosts = true;
+      })
+  }
+
+  getAllPostsWithFilter(pagination, filter) {
+    this._blogService.getAllBlogPostsWithFilter(pagination, filter)
+      .subscribe((result: any) => {
+        // if(result.data.data.blog_posts)
+        let data = result.data.data.blog_posts.data;
+        let meta = result.data.data.blog_posts.meta;
+        this.posts = data;
+        this.totalCount = meta.total_count;
+        let j = 0;
+        if(this.postsNestedArr[0].length != 1) {
+          j = this.postsNestedArr.length - 1;
+        }
         for(let i = 0; i < this.posts.length; i++) {
           if(i !== 0 && i % 2 == 0) {
             this.postsNestedArr.push([]);
@@ -86,7 +127,8 @@ export class BlogComponent implements OnInit {
   pagination = 1;
   isLoaded = false;
   isLoadedPosts = false;
-  searchInput: string = null;
+  searchInput: string = "";
+  isFiltered = false;
 
   title = "VA Loans Blog";
   subtitle = "Benefit news, VA Loan tips, and  personal finance help";

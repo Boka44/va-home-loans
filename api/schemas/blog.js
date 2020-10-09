@@ -103,8 +103,8 @@ blogSchema.getBlogPostsWithFilter = (pagination, filter) => {
         const offset = pagination * limit - limit;
         const filterObj = `{
             or: [
-                {title_contains: ${filter}}
-                {content_contains: ${filter}}
+                {title_contains: "${filter}"}
+                {content_contains: "${filter}"}
             ]
         }`
         const body =  {

@@ -1,7 +1,7 @@
 <div class="page-wrapper" *ngIf="isLoaded; else loading"
 infiniteScroll
-[infiniteScrollDistance]="2"
-[infiniteScrollThrottle]="0"
+[infiniteScrollDistance]="1"
+[infiniteScrollThrottle]="50"
 (scrolled)="onScroll()">
     <!-- Hero Section -->
     <div class="hero container-fluid">
@@ -49,23 +49,34 @@ infiniteScroll
         </div> -->
         
         <div *ngIf="isLoadedPosts; else loadingPosts">
-            <div *ngFor="let group of postsNestedArr"  class="row" style="margin: 0px;"> 
-                <div *ngFor="let post of group" class="col-lg-6 col-md-12  post">
-                    
-                    <div class="img-container">
-                        <img [src]="post.image.full_url" class="img-fluid">
+            <div *ngIf="postsNestedArr[0].length !== 0; else noResults">
+
+            
+                <div *ngFor="let group of postsNestedArr"  class="row" style="margin: 0px;"> 
+                    <div *ngFor="let post of group" class="col-lg-6 col-md-12  post">
+                        
+                        <div class="img-container">
+                            <img [src]="post.image.full_url" class="img-fluid">
+                        </div>
+                        <h3>{{post.title}}</h3>
+                        <p [innerHTML]="post.content"></p>
+                        <a [value]="post.id">Read more</a>
                     </div>
-                    <h3>{{post.title}}</h3>
-                    <p [innerHTML]="post.content"></p>
-                    <a [value]="post.id">Read more</a>
                 </div>
-            </div>\
-        </div> 
+            </div> 
+        </div>
             <ng-template #loadingPosts>
-                <div class="loader-wrapper">
+                <div class="loader-wrapper" style="min-height: 500px;">
                   <div class="loader">
                     <mat-spinner></mat-spinner>
                   </div>
+                </div>
+              </ng-template>
+              <ng-template #noResults>
+                <div class="noResults text-center">
+                    <h4>No results.</h4>
+                    <p>Let us know what information you were looking for</p>
+                    <button class="btn btnGreen" routerLink="/contact">Contact Us</button>
                 </div>
               </ng-template>
     </div>
