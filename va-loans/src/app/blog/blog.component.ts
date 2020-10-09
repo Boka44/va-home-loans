@@ -33,20 +33,6 @@ export class BlogComponent implements OnInit {
     } else {
       this.getAllPosts(this.pagination);
     }
-    
-    
-    // this._blogService.getAllBlogPosts(this.pagination)
-    //   .subscribe((result: any) => {
-    //     let data = result.data.data.blog_posts.data;
-    //     let j = 0;
-    //     for(let i = 0; i < data.length; i++) {
-    //       if(i !== 0 && i % 2 == 0) {
-    //         this.postsNestedArr.push([]);
-    //         j++;
-    //       }
-    //       this.postsNestedArr[j].push(data[i]);
-    //     }
-      // })
   }
 
   search() {
