@@ -34,7 +34,7 @@ infiniteScroll
     <div class="text-center">
         <mat-form-field class="example-full-width" style="line-height: 28px; width: 400px;">
             <mat-label>Search</mat-label>
-            <input matInput  [(ngModel)]="searchInput" #ctrl="ngModel"
+            <input matInput  [(ngModel)]="searchInput" #ctrl="ngModel" (keyup.enter)="search()"
                 placeholder="">
         </mat-form-field>
         <button mat-icon-button style="outline: none;" (click)="search()"><mat-icon>search</mat-icon></button>
