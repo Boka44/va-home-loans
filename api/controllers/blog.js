@@ -15,4 +15,18 @@ blogController.getBlogPageData = (req , res, next) => {
         })
 };
 
+blogController.getAllBlogPosts = (req , res, next) => {
+    let pagination = req.query.pagination;
+    blogService.getAllBlogPosts(pagination)
+        .then((data) => {
+            res.status(200).send({
+                success: true,
+                data: data
+            })
+        })
+        .catch((err) => {
+            next(err);
+        })
+};
+
 module.exports = blogController;

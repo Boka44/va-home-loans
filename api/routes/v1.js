@@ -18,6 +18,7 @@ router.get('/qualify/cert', qualifyController.getCertData);
 router.get('/contact', contactController.getContactData);
 
 router.get('/blog-page', blogController.getBlogPageData);
+router.get('/blog-posts', blogController.getAllBlogPosts)
 
 router.get('/condo-page', condoController.getCondoPageData);
 

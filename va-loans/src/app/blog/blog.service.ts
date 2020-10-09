@@ -12,4 +12,8 @@ export class BlogService {
     getAllPageData() {
         return this.http.get(environment.serverUrl + '/blog-page');
     }
+
+    getAllBlogPosts(pagination) {
+        return this.http.get(environment.serverUrl + `/blog-posts?pagination=${pagination}`);
+    }
 }

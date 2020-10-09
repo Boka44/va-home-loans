@@ -200,8 +200,13 @@
         padding: 20px;
         background-clip: content-box;
 
-        img {
+        .img-container {
             height: 400px;
+            overflow: hidden;
+        }
+
+        img {
+            min-width: 100%;
 
             @media (max-width: 767px) {
                 height: 280px;

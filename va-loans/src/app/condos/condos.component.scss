@@ -197,6 +197,7 @@
         width: 500px;
         height: 300px;
         overflow: hidden;
+        padding-left: 0px !important;
 
         @media (max-width: 979px) {
             height: auto;
