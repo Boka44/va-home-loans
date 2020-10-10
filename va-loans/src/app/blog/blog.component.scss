@@ -224,17 +224,25 @@
         .img-container {
             height: 400px;
             overflow: hidden;
+            background-color: rgba(0,0,0, 0.1);
             @media (max-width: 767px) {
                 height: 300px;
             }
         }
 
+        .helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
         img {
             min-width: 100%;
+            vertical-align: middle;
             // max-width: 131% !important;
 
             @media (max-width: 767px) {
-                height: 280px;
+                // height: 280px;
             }
         }
 
