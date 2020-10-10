@@ -22,6 +22,9 @@ router.get('/blog-posts', blogController.getAllBlogPosts)
 router.get('/blog-posts-filtered', blogController.getAllBlogPostswithFilter)
 
 router.get('/condo-page', condoController.getCondoPageData);
+router.get('/condos', condoController.getAllCondos);
+router.get('/condos-filtered', condoController.getAllCondoswithFilter);
+
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');
