@@ -156,20 +156,41 @@
                 margin-bottom: 20px;
             }
 
-            .search {
-                // text-align: center;
-                .input {
+            // .search {
+            //     // text-align: center;
+            //     line-height: 28px;
+            //     width: 400px !important;
+            //     @media (max-width: 600px) {
+            //         width: 88% !important;
+            //     }
+            //     // .input {
 
-                    @media (max-width: 600px) {
-                        width: 80%;
-                    }
-                }
+            //     //     @media (max-width: 600px) {
+            //     //         width: 80%;
+            //     //     }
+            //     // }
               
-            }   
+            // }   
             
         }
     }
 }
+
+.search {
+    // text-align: center;
+    line-height: 28px;
+    width: 400px !important;
+    @media (max-width: 600px) {
+        width: 88% !important;
+    }
+    // .input {
+
+    //     @media (max-width: 600px) {
+    //         width: 80%;
+    //     }
+    // }
+  
+}   
 
 // ******************************************************
 // 
@@ -203,10 +224,14 @@
         .img-container {
             height: 400px;
             overflow: hidden;
+            @media (max-width: 767px) {
+                height: 300px;
+            }
         }
 
         img {
             min-width: 100%;
+            // max-width: 131% !important;
 
             @media (max-width: 767px) {
                 height: 280px;
@@ -217,15 +242,15 @@
             margin-top: 15px;
             text-align: center;
             color: $green;
-            margin-bottom: 10px;
-            height: 40px;
-            overflow: hidden;
+            margin-bottom: -20px;
+            height: 70px;
+            overflow-y: hidden;
         }
 
         p {
             font-family: $font-light-italic;
             height: 265px;
-            overflow: hidden;
+            overflow-y: hidden;
             // text-overflow: ellipsis;
             width: 100%;
             padding: 20px 50px;
