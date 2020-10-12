@@ -179,6 +179,22 @@
     }
 }
 
+.search {
+    // text-align: center;
+    // line-height: 28px;
+    width: 400px !important;
+    @media (max-width: 600px) {
+        width: 88% !important;
+    }
+    // .input {
+
+    //     @media (max-width: 600px) {
+    //         width: 80%;
+    //     }
+    // }
+  
+}   
+
 // ******************************************************
 // 
 //  Condos Area
@@ -242,6 +258,7 @@
         .description {
             font-family: $font-light-italic;
             font-size: 18px;
+            overflow-wrap: anywhere;
             
             @media (max-width: 676px) {
                 margin-top: 5px;

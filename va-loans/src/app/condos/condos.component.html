@@ -1,4 +1,8 @@
-<div class="page-wrapper" *ngIf="isLoaded; else loading">
+<div class="page-wrapper" *ngIf="isLoaded; else loading" style="padding-bottom: 50px;"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50"
+(scrolled)="onScroll()">
     <!-- Hero Section -->
     <div class="hero container-fluid">
         <div class="row">
@@ -31,12 +35,12 @@
         <div class="text-center filter">
             <!-- <input placeholder="Search..." class="input"> -->
          
-                <mat-form-field class="example-full-width" style="line-height: 28px; width: 400px;">
-                  <mat-label>Search</mat-label>
-                  <input matInput 
-                         placeholder="">
-
-                </mat-form-field>
+            <mat-form-field class="search" style="line-height: 28px; width: 400px;">
+                <mat-label>Search</mat-label>
+                <input matInput  [(ngModel)]="searchInput" #ctrl="ngModel" (keyup.enter)="search()"
+                    placeholder="">
+            </mat-form-field>
+                
             
             <mat-form-field appearance="fill">
                 <mat-label>Choose a filter</mat-label>
@@ -47,33 +51,51 @@
                 </mat-select>
             </mat-form-field>
 
+            <button mat-icon-button style="outline: none;" (click)="search()"><mat-icon>search</mat-icon></button>
             <!-- <button mat-stroked-button style="outline: none;">Search</button> -->
         </div>
 
         <!-- Condos -->
-        <div *ngFor="let condo of condos" class="box row">
-            <div class="img-container col-lg-5 col-md-12">
-                <img [src]="condo.img" class="img-fluid">
+        <div *ngIf="isLoadedCondos; else loadingCondos">
+            <div *ngIf="condos.length !== 0; else noResults">
+                <div *ngFor="let condo of condos" class="box row">
+                    <div class="img-container col-lg-5 col-md-12">
+                        <img [src]="condo.image.full_url" class="img-fluid">
+                    </div>
+                    <div class="content-container col-lg-7 col-md-12 row">
+                        <!-- <div class="row"> -->
+                            <div class="col-md-9 col-9 address">{{condo.address}}, {{condo.city}}, {{condo.zip}}</div>
+                            <div class="col-md-3 col-3 price">${{condo.price}}</div>
+                        <!-- </div> -->
+                        <!-- <div class="row"> -->
+                            <p class="col-md-12 description ">{{condo.description}}</p>
+                        <!-- </div> -->
+                        
+                        <!-- <div class="row"> -->
+                            <div class="col-md-3 col-4 detail">{{condo.beds}} Beds</div>
+                            <div class="col-md-3 col-4 detail">{{condo.baths}} Baths</div>
+                            <div class="col-md-3 col-4 detail">{{condo.square_feet}} ft2</div>
+                            <div class="col-md-3 col-12 button"><button class="btnGreen" (click)="listingBtn(condo.external_link)">View Listing</button></div>
+                        <!-- </div> -->
+                        
+                    </div>
+                </div>
             </div>
-            <div class="content-container col-lg-7 col-md-12 row">
-                <!-- <div class="row"> -->
-                    <div class="col-md-9 col-9 address">{{condo.address}}, {{condo.city}}, {{condo.zip}}</div>
-                    <div class="col-md-3 col-3 price">${{condo.price}}</div>
-                <!-- </div> -->
-                <!-- <div class="row"> -->
-                    <p class="col-md-12 description ">{{condo.description}}</p>
-                <!-- </div> -->
-                
-                <!-- <div class="row"> -->
-                    <div class="col-md-3 col-4 detail">{{condo.beds}} Beds</div>
-                    <div class="col-md-3 col-4 detail">{{condo.baths}} Baths</div>
-                    <div class="col-md-3 col-4 detail">{{condo.square_feet}} ft2</div>
-                    <div class="col-md-3 col-12 button"><button class="btnGreen">View Listing</button></div>
-                <!-- </div> -->
-                
-            </div>
-            
         </div>
+        <ng-template #loadingCondos>
+            <div class="loader-wrapper" style="min-height: 500px;">
+              <div class="loader">
+                <mat-spinner></mat-spinner>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template #noResults>
+            <div class="noResults text-center">
+                <h4>No results.</h4>
+                <p>Let us know what you are looking for</p>
+                <button class="btn btnGreen" routerLink="/contact">Contact Us</button>
+            </div>
+          </ng-template>
     </div>
     
     
