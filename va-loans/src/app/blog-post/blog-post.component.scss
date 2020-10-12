@@ -1,0 +1,66 @@
+@import '../style/app.variables';
+
+// ******************************************************
+// 
+//  Blog Post Component
+// 
+// ******************************************************
+
+.bpBg {
+    background-color: #F7F7F7 !important;
+}
+
+.blogPost {
+    background-color: white;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+
+    .header {
+        margin: 0;
+        color: white !important;
+        background-color: $dark-blue;
+        font-size: 50px;
+            @media (max-width: 979px) {
+                font-size: 30px;
+            }
+            @media (max-width: 767px) {
+                font-size: 25px;
+            }
+    }
+
+    .img-container {
+        background-color: rgba(0,0,0, 0.1);
+
+        .img-fluid {
+            max-height: 500px;
+            vertical-align: middle;
+
+            @media (max-width: 767px) {
+                max-height: 300px;
+            }
+            
+        }
+
+        .helper {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    .content {
+
+        padding: 50px;
+
+        iframe {
+            width: 80% !important;
+            height: 500px;
+            @media(max-width: 676px) {
+                width: 100% !important;
+                height: 350px;
+            }
+            
+            // height: auto;
+        }
+    }
+}

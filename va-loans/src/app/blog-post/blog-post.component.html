@@ -1,1 +1,25 @@
-<p>blog-post works!</p>
+<div class="page-wrapper bpBg" *ngIf="isLoaded; else loading">
+    <br>
+    <div class="container blogPost">
+        
+        <div class="header text-center">
+            {{blogPost.title}}
+        </div>
+        <div class="text-center img-container">
+            <span class="helper"></span>
+            <img class="img-fluid" [src]="blogPost.image.full_url">
+        </div>
+        <div class="content">
+            <div [innerHTML]="blogPost.content | safe: 'html'"></div>
+        </div>
+    </div>
+    <br>
+</div>
+
+<ng-template #loading>
+    <div class="loader-wrapper">
+      <div class="loader">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+  </ng-template>

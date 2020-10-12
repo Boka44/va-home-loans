@@ -44,4 +44,18 @@ blogController.getAllBlogPostswithFilter = (req , res, next) => {
         })
 };
 
+blogController.getBlogPost = (req , res, next) => {
+    let id = req.query.id;
+    blogService.getBlogPost(id)
+        .then((data) => {
+            res.status(200).send({
+                success: true,
+                data: data
+            })
+        })
+        .catch((err) => {
+            next(err);
+        })
+};
+
 module.exports = blogController;

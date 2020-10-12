@@ -61,7 +61,7 @@ infiniteScroll
                         </div>
                         <h3>{{post.title}}</h3>
                         <p [innerHTML]="post.content"></p>
-                        <a [value]="post.id">Read more</a>
+                        <a [value]="post.id" [routerLink]="['/blog-post', post.id]">Read more</a>
                     </div>
                 </div>
             </div> 

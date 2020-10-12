@@ -21,6 +21,8 @@ router.get('/blog-page', blogController.getBlogPageData);
 router.get('/blog-posts', blogController.getAllBlogPosts)
 router.get('/blog-posts-filtered', blogController.getAllBlogPostswithFilter)
 
+router.get('/blog-post', blogController.getBlogPost);
+
 router.get('/condo-page', condoController.getCondoPageData);
 router.get('/condos', condoController.getAllCondos);
 router.get('/condos-filtered', condoController.getAllCondoswithFilter);

@@ -41,10 +41,12 @@ import { ApplyService } from './apply/apply.service';
 import { CertificateService } from './certificate/certificate.service';
 import { ContactService } from './contact/contact.service';
 import { BlogService } from './blog/blog.service';
+import { BlogPostService } from './blog-post/blog-post.service';
 import { CondosService } from './condos/condos.service';
 
 import { CacheInterceptor } from '../assets/javascript/cache.interceptor';
 import { RequestCacheService } from '../assets/javascript/requestCache.service';
+import { SafePipe } from './safe.pipe';
 
 const routes: Routes = [
   // {
@@ -68,7 +70,7 @@ const routes: Routes = [
       },
       { path: 'contact', component: ContactComponent },
       { path: 'blog', component: BlogComponent },
-      { path: 'blog-post', component: BlogPostComponent },
+      { path: 'blog-post/:id', component: BlogPostComponent },
       { path: 'condos', component: CondosComponent },
       { path: 'mortgage-calculator', component: MortgageCalcComponent },
       { path: '',   redirectTo: 'home', pathMatch: 'full' }, 
@@ -82,7 +84,7 @@ const routes: Routes = [
   { path: 'certificate-of-eligibility', component: CertificateComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'blog-post', component: BlogPostComponent },
+  { path: 'blog-post/:id', component: BlogPostComponent },
   { path: 'condos', component: CondosComponent },
   { path: 'mortgage-calculator', component: MortgageCalcComponent },
   { path: '',   redirectTo: 'home', pathMatch: 'full' }, 
@@ -109,7 +111,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     BlogPostComponent,
     CondosComponent,
     NavigationComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -146,6 +149,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CertificateService,
     ContactService,
     BlogService,
+    BlogPostService,
     CondosService
   ],
   bootstrap: [AppComponent]
