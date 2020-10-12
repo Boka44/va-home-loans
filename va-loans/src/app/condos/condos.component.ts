@@ -91,8 +91,8 @@ export class CondosComponent implements OnInit {
   }
 
   listingBtn(link) {
-    console.log(link)
-    // window.location.href = link;
+    // console.log(link)
+    window.location.href = link;
   }
 
   totalCount: Number;
