@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // serverUrl: 'http://localhost:8080/api'
-  serverUrl: "http://18.218.84.140:8080/api"
+  serverUrl: "http://13.52.125.105:8080/api"
 };
 
 /*
