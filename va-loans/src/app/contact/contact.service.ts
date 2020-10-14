@@ -12,4 +12,9 @@ export class ContactService {
     getAllData() {
         return this.http.get(environment.serverUrl + '/contact');
     }
+
+    sendContactForm(body) {
+        console.log(body);
+        return this.http.post(environment.serverUrl + '/contact-form', body);
+    }
 }

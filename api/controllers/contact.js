@@ -15,4 +15,15 @@ contactController.getContactData = (req , res, next) => {
         })
 };
 
+contactController.contactForm = (req, res, next) => {
+    let body = req.body;
+    console.log(body);
+    if(!req.body) {
+        console.log(req);
+    }
+    res.status(200).send({
+        success: true
+    });
+}
+
 module.exports = contactController;
