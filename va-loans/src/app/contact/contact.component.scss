@@ -93,6 +93,11 @@
         }
 
         .contact-block {
+            
+            .ng-untouched:not(form) {
+                border-left: 5px solid $dark-blue;
+            }
+
             text-align: center;
             border: grey solid 1px;
             background-color: white;
