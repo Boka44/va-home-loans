@@ -120,6 +120,16 @@ export class LandingComponent implements OnInit {
 
   email;
 
+  form: Object = {
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  };
+
+  submitted = false;
+  contactError = false;
+
   getHomeData() {
     this._landingService.getAllData()
       .subscribe((result: any) => {
@@ -153,6 +163,24 @@ export class LandingComponent implements OnInit {
         this.isLoaded = true;
       });
   }
+
+  formSubmit() {
+    let errors = [];
+    // if()
+    this._landingService.sendContactForm(this.form)
+      .subscribe((result: any) => {
+        if(result.success == true) {
+          this.submitted = true;
+          this.contactError = false;
+        } else {
+          this.contactError = true;
+        }
+        console.log(result);
+        console.log('happening');
+      })
+    // this.submitted = true;
+    console.log(this.form)
+  };
 
   ngOnInit(): void {
     this.getHomeData();

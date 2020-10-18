@@ -12,4 +12,9 @@ export class LandingService {
     getAllData() {
         return this.http.get(environment.serverUrl + '/home');
     }
+
+    sendContactForm(body) {
+        console.log(body);
+        return this.http.post(environment.serverUrl + '/contact-form', body);
+    }
 }
