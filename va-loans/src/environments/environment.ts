@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // serverUrl: 'http://localhost:8080/api'
-  serverUrl: "https://valoans.app/api"
+  serverUrl: 'http://localhost:8080/api'
+  // serverUrl: "https://valoans.app/api"
 };
 
 /*
