@@ -54,7 +54,7 @@ buildSitemap.update = () => {
             });
             let sitemap = builder.create(sitemapObj, { encoding: 'utf-8' })
             // console.log(sitemap.end({ pretty: true }))
-            fs.writeFile("./va-loans/dist/va-loans/sitemap.xml", sitemap.end({ pretty: true }), (err) => {
+            fs.writeFile("./va-loans/src/sitemap.xml", sitemap.end({ pretty: true }), (err) => {
                 if(err) console.log(err);
                 console.log('Updated Sitemap');
             })
