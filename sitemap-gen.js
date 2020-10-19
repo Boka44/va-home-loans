@@ -3,7 +3,8 @@ const axios = require('axios');
 const fs = require('fs');
 
 const graphql_url = require("./config/env/development").api_url_graphql;
-const token = require('./config/env/development').api_token;
+// const token = require('./config/env/development').api_token;
+const token = 'bXRfkNeVZ84vhiXJDsuNXHZp';
 
 const config = {
     headers: { Authorization: `Bearer ${token}` }
@@ -53,7 +54,7 @@ buildSitemap.update = () => {
             });
             let sitemap = builder.create(sitemapObj, { encoding: 'utf-8' })
             // console.log(sitemap.end({ pretty: true }))
-            fs.writeFile('sitemap.xml', sitemap.end({ pretty: true }), (err) => {
+            fs.writeFile("./va-loans/dist/va-loans/sitemap.xml", sitemap.end({ pretty: true }), (err) => {
                 if(err) console.log(err);
                 console.log('Updated Sitemap');
             })

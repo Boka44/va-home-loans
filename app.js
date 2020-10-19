@@ -40,7 +40,7 @@ require('./config/env/development');
 require('./api/routes/index')(app);
 
 const sitemapBuilder = require('./sitemap-gen');
-
+sitemapBuilder.update();
 const job = new CronJob('00 00 00 * * *', function() {
     sitemapBuilder.update();
 	console.log('Sitemap updated');
@@ -69,6 +69,10 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.send(response);
 });
+
+// app.get('/sitemap.xml', (req, res) => {
+//     res.status(200).sendFile('./sitemap.xml')
+// });
 
 app.all('*', (req, res) => {
     console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
