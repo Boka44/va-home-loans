@@ -4,12 +4,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const morgan = require('morgan');
-const passport = require('passport');
+// const passport = require('passport');
 // const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 // const session = require("express-session");
-const moment = require('moment');
-const fs = require('fs');
+// const moment = require('moment');
+// const fs = require('fs');
+const CronJob = require('cron').CronJob;
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -38,7 +39,13 @@ require('./config/env/development');
 
 require('./api/routes/index')(app);
 
+const sitemapBuilder = require('./sitemap-gen');
 
+const job = new CronJob('00 00 00 * * *', function() {
+    sitemapBuilder.update();
+	console.log('Sitemap updated');
+});
+job.start();
 
 // error handler
 app.use((err, req, res, next) => {
@@ -76,6 +83,8 @@ app.all('*', (req, res) => {
 // app.use(passport.initialize());
 // app.use(passport.session());
 // app.use(flash());
+
+
 
 app.listen(PORT, () => {
 	console.log("Server is running on port " + PORT);

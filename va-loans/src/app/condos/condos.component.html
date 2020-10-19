@@ -9,7 +9,7 @@ infiniteScroll
             <div class="col-md hero-content">
                 
                 <div class="">
-                    <img [src]="img" alt="..." class="">
+                    <img [src]="img" alt="va approved condo" class="">
                 </div>
                             
                 
@@ -60,7 +60,7 @@ infiniteScroll
             <div *ngIf="condos.length !== 0; else noResults">
                 <div *ngFor="let condo of condos" class="box row">
                     <div class="img-container col-lg-5 col-md-12">
-                        <img [src]="condo.image.full_url" class="img-fluid">
+                        <img [src]="condo.image.full_url" class="img-fluid" loading="lazy">
                     </div>
                     <div class="content-container col-lg-7 col-md-12 row">
                         <!-- <div class="row"> -->
