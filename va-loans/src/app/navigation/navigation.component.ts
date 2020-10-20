@@ -22,8 +22,8 @@ export class NavigationComponent implements OnInit {
     this.navToggle = false;
   }
 
-  address = "497 Evergreen Rd. Roseville, CA 95673";
-  phone = "+44 345 678 903";
-  email = "adobexd@mail.com"; 
+  address = "411 Camino Del Rio South #300, San Diego, CA 92108";
+  phone = "(619) 393 9857";
+  email = "robert@valoans.app"; 
   
 }
