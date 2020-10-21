@@ -35,11 +35,15 @@ buildSitemap.update = () => {
     ]
     return getBlogPostsTotal()
         .then((result) => {
-            let meta = result.data.blog_posts.meta;
-            let total = meta.total_count;
-            for(let i = 0; i < total; i ++) {
-                urls.push(`https://www.valoans.app/blog-post/${i+1}`)
-            }
+            // let meta = result.data.blog_posts.meta;
+            // let total = meta.total_count;
+            // for(let i = 0; i < total; i ++) {
+            //     urls.push(`https://www.valoans.app/blog-post/${i+1}`)
+            // }
+            let data = result.data.blog_posts.data;
+            data.forEach((i) => {
+                urls.push(`https://www.valoans.app/blog-post/${i.id}`)
+            })
             let today = Date.now();
             today = new Date(today);
             let year = today.getFullYear();
@@ -73,8 +77,8 @@ const getBlogPostsTotal = () => {
             query: `
             query {
                 blog_posts {
-                    meta {
-                        total_count
+                    data {
+                        id
                     }
                 }
             }`
