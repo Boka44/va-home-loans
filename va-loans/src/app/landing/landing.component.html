@@ -87,11 +87,20 @@
         </div>
         <div class="header">{{newsletter_title}}</div>
         <div class="subtitle">{{newsletter_subtitle}}</div>
-        <form id="contactForm" action="/api/contact" method="POST">
-            <input type="text" placeholder="Email" id="email" class="input" name="name" required data-error="Please enter your email">
-            <br>
-            <button class="btn btnGreen" type="submit">Submit</button>
-        </form>
+        <form id="subscribeForm" (ngSubmit)="subscriptionFormSubmit()" #subscribeForm="ngForm">
+                    
+            <input type="text" placeholder="Your Email" id="email" class="input subInput" [(ngModel)]="formSub.email" name="email" #email="ngModel" required data-error="Please enter your email">
+            
+            <button *ngIf="!submittedSub && !contactErrorSub" class="btn btnGreen" [disabled]="!subscribeForm.form.valid" id="submit" type="submit">Sign Up!</button>
+            <button *ngIf="submittedSub" class="btn btnGreen" id="submit">Subscribed!</button>
+            <button *ngIf="contactErrorSub" class="alert alert-danger" id="submit">Something went wrong. Try refreshing the page.</button>
+            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                Valid Email is required
+            </div>
+            <div [hidden]="!isEmailInvalidSub" class="alert alert-danger">
+                Valid Email is required
+            </div>
+    </form>
         
     </div>
 

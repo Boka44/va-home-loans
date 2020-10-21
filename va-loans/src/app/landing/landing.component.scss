@@ -375,8 +375,21 @@
     @include hero-max-height(0px);
     text-align: center;
 
+    .ng-untouched:not(form) {
+        border-left: 1px solid darkgray;
+    }
+    
+    .subInput {
+        border-radius: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-right: 10px;
+    }
+
     .subscribe-box {
         margin-top: 20%;
+
+        
     }
 }
 

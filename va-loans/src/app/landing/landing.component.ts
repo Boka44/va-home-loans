@@ -131,6 +131,14 @@ export class LandingComponent implements OnInit {
   contactError = false;
   isEmailInvalid = false;
 
+  formSub = {
+    email: ""
+  };
+
+  submittedSub = false;
+  contactErrorSub = false;
+  isEmailInvalidSub = false;
+
   getHomeData() {
     this._landingService.getAllData()
       .subscribe((result: any) => {
@@ -170,6 +178,28 @@ export class LandingComponent implements OnInit {
     return re.test(String(email).toLowerCase());
   }
 
+  subscriptionFormSubmit() {
+    if(!this.validateEmail(this.formSub.email)) {
+      this.isEmailInvalidSub = true
+      console.log('Email Invalid')
+      return;
+    }
+    this._landingService.sendNewsletter(this.formSub)
+      .subscribe((result: any) => {
+        if(result.status == 422) {
+          this.isEmailInvalidSub = true
+          return;
+        }
+        if(result.success == true) {
+          this.submittedSub = true;
+          this.contactErrorSub = false;
+          this.isEmailInvalidSub = false;
+        } else {
+          this.contactErrorSub = true;
+        }
+      })
+  };
+
   formSubmit() {
     if(!this.validateEmail(this.form.email)) {
       this.isEmailInvalid = true
@@ -197,6 +227,10 @@ export class LandingComponent implements OnInit {
     this.submitted = false;
     this.contactError = false;
     this.isEmailInvalid = false;
+
+    this.submittedSub = false;
+    this.contactErrorSub = false;
+    this.isEmailInvalidSub = false;
   }
 
 }

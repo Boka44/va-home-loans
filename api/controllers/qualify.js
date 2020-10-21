@@ -38,7 +38,6 @@ qualifyController.getCertData = (req , res, next) => {
 
 qualifyController.certForm = (req, res, next) => {
     let body = req.body;
-    let body = req.body;
     if(!validateEmail(body.email)) {
         res.status(422).send({
             success: false

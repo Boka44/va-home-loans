@@ -25,7 +25,6 @@ contactController.getContactData = (req , res, next) => {
 
 contactController.contactForm = (req, res, next) => {
     let body = req.body;
-    let body = req.body;
     if(!validateEmail(body.email)) {
         res.status(422).send({
             success: false
