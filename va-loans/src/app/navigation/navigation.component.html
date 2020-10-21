@@ -68,9 +68,16 @@
                 <div class="header">
                     Join our Newsletter!
                 </div>
-                <form id="contactForm" action="/api/contact" method="POST">
-                    <input type="text" placeholder="Email" id="email" class="input" name="name" required data-error="Please enter your email">
-                    <button class="btn btnGreen" type="submit">Submit</button>
+                <form id="subscribeFormFooter" (ngSubmit)="formSubmitFooter()" #subscribeFormFooter="ngForm">
+                    
+                        <input type="text" placeholder="Your Email" id="email" class="input" [(ngModel)]="footerEmailSub" name="email" #email="ngModel" required data-error="Please enter your email">
+                        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                            Email is required
+                        </div>
+                        <button *ngIf="!submittedFooterNewsletter && !formErrorFooterNewsletter" class="btn btnGreen" [disabled]="!subscribeFormFooter.form.valid" id="submit" type="submit">Sign Up!</button>
+                        <button *ngIf="submittedFooterNewsletter" class="btn btnGreen" id="submit">Sent!</button>
+                        <button *ngIf="formErrorFooterNewsletter" class="alert alert-danger" id="submit">Something went wrong. Try refreshing the page.</button>
+                    
                 </form>
             </div>
         </div>

@@ -181,7 +181,7 @@
 // ******************************************************
 
 .footer {
-    position: relative;
+    // position: relative;
     background-color: #020A2B;
     height: 320px;
     padding-top: 60px;
@@ -220,6 +220,10 @@
 
         .newsletter {
             text-align: center;
+
+            .ng-untouched:not(form) {
+                border-left: 1px solid white;
+            }
             
 
             .header {

@@ -43,6 +43,7 @@ import { ContactService } from './contact/contact.service';
 import { BlogService } from './blog/blog.service';
 import { BlogPostService } from './blog-post/blog-post.service';
 import { CondosService } from './condos/condos.service';
+import { NavigationService } from './navigation/navigation.service';
 
 import { CacheInterceptor } from '../assets/javascript/cache.interceptor';
 import { RequestCacheService } from '../assets/javascript/requestCache.service';
@@ -150,7 +151,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ContactService,
     BlogService,
     BlogPostService,
-    CondosService
+    CondosService,
+    NavigationService
   ],
   bootstrap: [AppComponent]
 })

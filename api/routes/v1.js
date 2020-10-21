@@ -6,6 +6,7 @@ const qualifyController = require('../controllers/qualify');
 const contactController = require('../controllers/contact');
 const blogController = require('../controllers/blog');
 const condoController = require('../controllers/condo');
+const subscriptionController = require('../controllers/subscription');
 
 
 router.get('/home', homeController.getHomeData);
@@ -29,6 +30,7 @@ router.get('/condo-page', condoController.getCondoPageData);
 router.get('/condos', condoController.getAllCondos);
 router.get('/condos-filtered', condoController.getAllCondoswithFilter);
 
+router.post('/newsletter', subscriptionController.subscribe);
 
 // const userController = require('../controllers/user');
 // const equipmentController = require('../controllers/equipment');
