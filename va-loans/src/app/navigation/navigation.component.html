@@ -75,7 +75,7 @@
                             Email is required
                         </div>
                         <button *ngIf="!submittedFooterNewsletter && !formErrorFooterNewsletter" class="btn btnGreen" [disabled]="!subscribeFormFooter.form.valid" id="submit" type="submit">Sign Up!</button>
-                        <button *ngIf="submittedFooterNewsletter" class="btn btnGreen" id="submit">Sent!</button>
+                        <button *ngIf="submittedFooterNewsletter" class="btn btnGreen" id="submit">Subscribed!</button>
                         <button *ngIf="formErrorFooterNewsletter" class="alert alert-danger" id="submit">Something went wrong. Try refreshing the page.</button>
                     
                 </form>
