@@ -4,8 +4,18 @@ const zapierUrlSubscription = require('../../config/env/development').zapier_url
 
 const subscriptionController = () => { };
 
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+};
+
 subscriptionController.subscribe = (req, res, next) => {
     let body = req.body;
+    if(!validateEmail(body.email)) {
+        res.status(422).send({
+            success: false
+        });
+    }
     let zapierPostBody = `{
       "newsletter": {
           "email": "${body.email}"

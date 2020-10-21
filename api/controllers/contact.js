@@ -5,6 +5,11 @@ const zapierUrlContact = require('../../config/env/development').zapier_url_cont
 
 const contactController = () => { };
 
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+};
+
 contactController.getContactData = (req , res, next) => {
     contactService.getContactData()
         .then((data) => {
@@ -20,6 +25,12 @@ contactController.getContactData = (req , res, next) => {
 
 contactController.contactForm = (req, res, next) => {
     let body = req.body;
+    let body = req.body;
+    if(!validateEmail(body.email)) {
+        res.status(422).send({
+            success: false
+        });
+    }
     let zapierPostBody = `{
       "contact": {
           "name": "${body.name}",

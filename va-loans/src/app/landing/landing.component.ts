@@ -120,7 +120,7 @@ export class LandingComponent implements OnInit {
 
   email;
 
-  form: Object = {
+  form = {
     name: "",
     email: "",
     phone: "",
@@ -129,6 +129,7 @@ export class LandingComponent implements OnInit {
 
   submitted = false;
   contactError = false;
+  isEmailInvalid = false;
 
   getHomeData() {
     this._landingService.getAllData()
@@ -164,26 +165,38 @@ export class LandingComponent implements OnInit {
       });
   }
 
+  validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
   formSubmit() {
-    let errors = [];
-    // if()
+    if(!this.validateEmail(this.form.email)) {
+      this.isEmailInvalid = true
+      console.log('Email Invalid')
+      return;
+    }
     this._landingService.sendContactForm(this.form)
       .subscribe((result: any) => {
+        if(result.status == 422) {
+          this.isEmailInvalid = true
+          return;
+        }
         if(result.success == true) {
           this.submitted = true;
           this.contactError = false;
+          this.isEmailInvalid = false;
         } else {
           this.contactError = true;
         }
-        console.log(result);
-        console.log('happening');
       })
-    // this.submitted = true;
-    console.log(this.form)
   };
 
   ngOnInit(): void {
     this.getHomeData();
+    this.submitted = false;
+    this.contactError = false;
+    this.isEmailInvalid = false;
   }
 
 }

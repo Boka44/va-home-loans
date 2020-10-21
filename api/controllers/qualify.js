@@ -5,6 +5,11 @@ const zapierUrlCert = require('../../config/env/development').zapier_url_cert;
 
 const  qualifyController = () => { };
 
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+};
+
 qualifyController.getApplyData = (req , res, next) => {
     qualifyService.getApplyData()
         .then((data) => {
@@ -33,6 +38,12 @@ qualifyController.getCertData = (req , res, next) => {
 
 qualifyController.certForm = (req, res, next) => {
     let body = req.body;
+    let body = req.body;
+    if(!validateEmail(body.email)) {
+        res.status(422).send({
+            success: false
+        });
+    }
     let zapierPostBody = `{
       "cert": {
           "name": "${body.name}",

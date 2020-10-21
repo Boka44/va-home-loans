@@ -46,6 +46,9 @@
                                 <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
                                     Email is required
                                 </div>
+                                <div [hidden]="!isEmailInvalid" class="alert alert-danger">
+                                    Valid Email is required
+                                </div>
                             </div> 
                             </div>
 

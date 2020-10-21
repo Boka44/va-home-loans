@@ -31,7 +31,7 @@ export class CertificateComponent implements OnInit {
         })
     }
 
-  form: Object = {
+  form = {
     name: "",
     email: "",
     phone: "",
@@ -40,25 +40,39 @@ export class CertificateComponent implements OnInit {
 
   submitted = false;
   formError = false;
+  isEmailInvalid = false;
+
+  validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
 
   formSubmit() {
+    if(!this.validateEmail(this.form.email)) {
+      this.isEmailInvalid = true
+      console.log('Email Invalid')
+      return;
+    }
     this._certificateService.sendCertForm(this.form)
       .subscribe((result: any) => {
+        if(result.status == 422) {
+          this.isEmailInvalid = true
+          return;
+        }
         if(result.success == true) {
           this.submitted = true;
           this.formError = false;
+          this.isEmailInvalid = false;
         } else {
           this.formError = true;
         }
-        console.log(result);
-        console.log('happening');
       })
-    console.log(this.form)
   };
 
   ngOnInit(): void {
     this.getCertificateData();
     this.submitted = false;
     this.formError = false;
+    this.isEmailInvalid = false;
   }
 }

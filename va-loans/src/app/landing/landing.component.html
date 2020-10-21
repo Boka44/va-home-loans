@@ -139,6 +139,9 @@
                               <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
                                   Email is required
                               </div>
+                              <div [hidden]="!isEmailInvalid" class="alert alert-danger">
+                                Valid Email is required
+                            </div>
                           </div> 
                           </div>
 
@@ -153,8 +156,6 @@
 
                           <div class="submit-button text-center">
                               <button *ngIf="!submitted && !contactError" class="btn btnGreen" [disabled]="!contactForm.form.valid" id="submit" type="submit">Send Message</button>
-                              <!-- <div id="msgSubmit" class="h3 text-center hidden"></div>  -->
-                              <!-- <div class="clearfix"></div>  -->
                               <button *ngIf="submitted" class="btn btnGreen" id="submit">Sent!</button>
                               <button *ngIf="contactError" class="alert alert-danger" id="submit">Something went wrong. Try refreshing the page.</button>
                           </div>
