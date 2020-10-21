@@ -14,6 +14,7 @@ router.get('/team', teamController.getTeamData);
 
 router.get('/qualify/apply', qualifyController.getApplyData);
 router.get('/qualify/cert', qualifyController.getCertData);
+router.post('/qualify/cert-form', qualifyController.certForm);
 
 router.get('/contact', contactController.getContactData);
 router.post('/contact-form', contactController.contactForm);

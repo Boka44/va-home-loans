@@ -12,4 +12,9 @@ export class CertificateService {
     getAllData() {
         return this.http.get(environment.serverUrl + '/qualify/cert');
     }
+
+    sendCertForm(body) {
+        console.log(body);
+        return this.http.post(environment.serverUrl + '/qualify/cert-form', body);
+    }
 }

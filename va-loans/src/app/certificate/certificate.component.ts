@@ -31,7 +31,34 @@ export class CertificateComponent implements OnInit {
         })
     }
 
+  form: Object = {
+    name: "",
+    email: "",
+    phone: "",
+    timeToReach: ""
+  };
+
+  submitted = false;
+  formError = false;
+
+  formSubmit() {
+    this._certificateService.sendCertForm(this.form)
+      .subscribe((result: any) => {
+        if(result.success == true) {
+          this.submitted = true;
+          this.formError = false;
+        } else {
+          this.formError = true;
+        }
+        console.log(result);
+        console.log('happening');
+      })
+    console.log(this.form)
+  };
+
   ngOnInit(): void {
     this.getCertificateData();
+    this.submitted = false;
+    this.formError = false;
   }
 }
