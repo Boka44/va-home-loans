@@ -160,13 +160,13 @@ export class LandingComponent implements OnInit {
         });
         this.testimonials = [];
         data.testimonials.forEach((i) => {
-          let mediumContainImg = i.image.thumbnails[3].url;
+          // let mediumContainImg = i.image.thumbnails[3].url;
           this.testimonials.push({
             name: i.name,
             city: i.city,
             description: i.description,
             state: i.state,
-            img: mediumContainImg
+            // img: mediumContainImg
           });
         });
         this.isLoaded = true;

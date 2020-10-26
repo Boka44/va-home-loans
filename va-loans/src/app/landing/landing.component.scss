@@ -185,6 +185,11 @@
 
             .call-to-action {
                 text-align: center;
+
+                button {
+                    width: 200px;
+                    height: 50px;
+                }
               
             }   
             
@@ -335,28 +340,54 @@
                     }
                 }
 
+                // .quote{
+                //     color: darkgrey;
+                //     font-size: 20px;
+                //     font-family: $font-light-italic;
+                //     margin-bottom: 20px;
+                //     height: 130px;
+
+                //     @media (max-width: 1300px) {
+                //         font-size: 16px;
+                //     }
+                // }
+
                 .quote{
                     color: darkgrey;
-                    font-size: 20px;
+                    font-size: 36px;
                     font-family: $font-light-italic;
                     margin-bottom: 20px;
-                    height: 130px;
+                    height: 285px;
+                    margin-top: 80px;
 
                     @media (max-width: 1300px) {
-                        font-size: 16px;
+                        font-size: 24px;
                     }
                 }
+
+                // .name {
+                //     color: $dark-blue;
+                //     font-family: $bold-font;
+                //     font-size: 26px;
+                //     margin-bottom: 0px;
+                // }
 
                 .name {
                     color: $dark-blue;
                     font-family: $bold-font;
-                    font-size: 26px;
+                    font-size: 30px;
                     margin-bottom: 0px;
                 }
 
+                // .location {
+                //     font-family: $font-light;
+                //     font-size: 24px;
+                //     color: black;
+                // }
+
                 .location {
                     font-family: $font-light;
-                    font-size: 24px;
+                    font-size: 26px;
                     color: black;
                 }
             }

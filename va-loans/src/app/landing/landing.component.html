@@ -60,15 +60,22 @@
             <div  class="swiper-container" [swiper]="swiperConfig" [(index)]="swiperIndex">
                 <div class="swiper-wrapper">
                   <div *ngFor="let card of testimonials" class="swiper-slide testimonial-card">
-                    <div class="content">
+                    <!-- <div class="content">
                         <div class="img-wrapper">
                             <img [src]="card.img" alt="testimonial photo" loading="lazy">
                         </div>
                         <p class="quote">{{card.description}}</p>
                         <p class="name">{{card.name}}</p>
                         <p class="location">{{card.city}} {{card.state}}</p>
+                    </div> -->
+                  
+
+                    <div class="content">
+                        <p class="quote">{{card.description}}</p>
+                        <p class="name">{{card.name}}</p>
+                        <p class="location">{{card.city}} {{card.state}}</p>
                     </div>
-                  </div>
+                </div>
                   
                 </div>
                 <div class="swiper-button-prev"></div>
