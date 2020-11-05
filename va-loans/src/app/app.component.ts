@@ -39,7 +39,6 @@ export class AppComponent {
           mergeMap((route) => route.data)).subscribe((event) => {
               this.title.setTitle(event['title'] + " | VaLoans" );
               this.meta.updateTag({ name: 'description', content: event['description']})
-              console.log(this.title.getTitle());
           });
   }
   // title = 'va-loans';
