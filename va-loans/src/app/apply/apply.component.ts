@@ -24,7 +24,7 @@ export class ApplyComponent implements OnInit {
 
   applyBtn() {
     this._googleAnalyticsService.eventEmitter("apply_button_click", "outbound_link", this.link);
-    window.location.href = this.link;
+    window.open(this.link, "_blank");
   }
 
   getApplyData() {

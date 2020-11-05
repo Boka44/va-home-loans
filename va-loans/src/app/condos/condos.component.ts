@@ -89,7 +89,8 @@ export class CondosComponent implements OnInit {
 
   listingBtn(link) {
     this._googleAnalyticsService.eventEmitter("condo_listing_link_click", "outbound_link", link);
-    window.location.href = link;
+    // window.location.href = link;
+    window.open(link, "_blank");
   }
 
   totalCount: Number;
