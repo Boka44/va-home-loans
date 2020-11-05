@@ -43,14 +43,11 @@ export class CondosComponent implements OnInit {
 
   search() {
     this.isLoadedCondos = false;
-    console.log(this.searchInput)
     this.condos.length = 0;
     this.condos = [];
     this.pagination = 1;
     if(this.searchInput.length === 0 || this.searchInput == "") {
-      console.log(this.searchInput);
       this.isFiltered = false;
-      console.log(this.condos)
       this.getAllCondos(this.pagination);
     } else {
       this.isFiltered = true;
@@ -61,7 +58,6 @@ export class CondosComponent implements OnInit {
   getAllCondos(pagination) {
     this._condosService.getAllCondos(pagination)
       .subscribe((result: any) => {
-        console.log(result)
         let data = result.data.data.condos.data;
         let meta = result.data.data.condos.meta;
         this.condosData = data;
@@ -69,8 +65,6 @@ export class CondosComponent implements OnInit {
           this.condos.push(this.condosData[i]);
         }
         this.totalCount = meta.total_count;
-        console.log(this.condos)
-        console.log(data)
         this.isLoadedCondos = true;
       })
   }
@@ -91,7 +85,6 @@ export class CondosComponent implements OnInit {
   }
 
   listingBtn(link) {
-    // console.log(link)
     window.location.href = link;
   }
 

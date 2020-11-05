@@ -48,8 +48,7 @@ export class NavigationComponent implements OnInit {
 
   formSubmitFooter() {
     if(!this.validateEmail(this.footerEmailSub)) {
-      this.isEmailInvalid = true
-      console.log('Email Invalid')
+      this.isEmailInvalid = true;
       return;
     }
     this._navigationService.sendNewsletter({ email: this.footerEmailSub })

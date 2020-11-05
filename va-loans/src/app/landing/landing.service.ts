@@ -14,12 +14,10 @@ export class LandingService {
     }
 
     sendContactForm(body) {
-        console.log(body);
         return this.http.post(environment.serverUrl + '/contact-form', body);
     }
 
     sendNewsletter(body) {
-        console.log(body);
         return this.http.post(environment.serverUrl + '/newsletter', body);
     }
 }

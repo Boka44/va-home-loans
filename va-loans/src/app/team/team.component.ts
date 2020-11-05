@@ -134,7 +134,6 @@ export class TeamComponent implements OnInit {
     this._teamService.getAllData()
       .subscribe((result: any) => {
         let data = result.data.data.team_page.data[0];
-        // console.log(data);
         this.title = data.title;
         this.image = data.header_image.full_url;
         data.team_members.forEach((i) => {

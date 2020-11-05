@@ -14,7 +14,6 @@ export class ContactService {
     }
 
     sendContactForm(body) {
-        console.log(body);
         return this.http.post(environment.serverUrl + '/contact-form', body);
     }
 }

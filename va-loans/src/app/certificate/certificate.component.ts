@@ -50,7 +50,6 @@ export class CertificateComponent implements OnInit {
   formSubmit() {
     if(!this.validateEmail(this.form.email)) {
       this.isEmailInvalid = true
-      console.log('Email Invalid')
       return;
     }
     this._certificateService.sendCertForm(this.form)

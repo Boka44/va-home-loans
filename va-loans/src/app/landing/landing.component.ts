@@ -142,9 +142,7 @@ export class LandingComponent implements OnInit {
   getHomeData() {
     this._landingService.getAllData()
       .subscribe((result: any) => {
-        console.log(result);
         let data = result.data.data.home_page.data[0];
-        console.log(data)
         this.alert_text = data.alert_text;
         this.contact_description = data.contact_description;
         this.contact_title = data.contact_title;
@@ -181,7 +179,6 @@ export class LandingComponent implements OnInit {
   subscriptionFormSubmit() {
     if(!this.validateEmail(this.formSub.email)) {
       this.isEmailInvalidSub = true
-      console.log('Email Invalid')
       return;
     }
     this._landingService.sendNewsletter(this.formSub)
@@ -203,7 +200,6 @@ export class LandingComponent implements OnInit {
   formSubmit() {
     if(!this.validateEmail(this.form.email)) {
       this.isEmailInvalid = true
-      console.log('Email Invalid')
       return;
     }
     this._landingService.sendContactForm(this.form)

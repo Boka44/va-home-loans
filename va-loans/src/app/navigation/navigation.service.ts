@@ -10,7 +10,6 @@ export class NavigationService {
     ) { }
 
     sendNewsletter(body) {
-        console.log(body);
         return this.http.post(environment.serverUrl + '/newsletter', body);
     }
 }

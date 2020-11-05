@@ -14,7 +14,6 @@ export class CertificateService {
     }
 
     sendCertForm(body) {
-        console.log(body);
         return this.http.post(environment.serverUrl + '/qualify/cert-form', body);
     }
 }

@@ -37,8 +37,7 @@ export class ContactComponent implements OnInit {
 
   formSubmit() {
     if(!this.validateEmail(this.form.email)) {
-      this.isEmailInvalid = true
-      console.log('Email Invalid')
+      this.isEmailInvalid = true;
       return;
     }
     this._contactService.sendContactForm(this.form)

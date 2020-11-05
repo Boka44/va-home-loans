@@ -37,13 +37,10 @@ export class BlogComponent implements OnInit {
 
   search() {
     this.isLoadedPosts = false;
-    console.log(this.searchInput)
     this.postsNestedArr.length = 0;
     this.postsNestedArr = [[]];
-    console.log(this.postsNestedArr);
     this.pagination = 1;
     if(this.searchInput.length === 0) {
-      console.log(this.searchInput);
       this.isFiltered = false;
       this.getAllPosts(this.pagination);
     } else {

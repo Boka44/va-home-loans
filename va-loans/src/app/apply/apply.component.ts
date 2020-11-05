@@ -19,7 +19,6 @@ export class ApplyComponent implements OnInit {
   link = "https://www.financeany1.com/rpollorena/";
 
   applyBtn() {
-    // console.log(this.link)
     window.location.href = this.link;
   }
 
