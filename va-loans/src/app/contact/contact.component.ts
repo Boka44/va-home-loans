@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from './contact.service';
+import { GoogleAnalyticsService } from '../google-analytics.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +10,8 @@ import { ContactService } from './contact.service';
 export class ContactComponent implements OnInit {
 
   constructor(
-    private _contactService: ContactService
+    private _contactService: ContactService,
+    private _googleAnalyticsService: GoogleAnalyticsService
   ) { }
 
   isLoaded = false;
@@ -47,6 +49,7 @@ export class ContactComponent implements OnInit {
           return;
         }
         if(result.success == true) {
+          this._googleAnalyticsService.eventEmitter("contact_form_submission", "new_lead", 'contact_page');
           this.submitted = true;
           this.contactError = false;
           this.isEmailInvalid = false;

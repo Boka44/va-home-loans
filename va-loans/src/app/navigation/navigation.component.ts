@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { NavigationService } from './navigation.service';
+import { GoogleAnalyticsService } from '../google-analytics.service';
 
 @Component({
   selector: 'app-navigation',
@@ -10,7 +11,8 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private _eref:ElementRef,
-    private _navigationService: NavigationService
+    private _navigationService: NavigationService,
+    private _googleAnalyticsService: GoogleAnalyticsService
     ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class NavigationComponent implements OnInit {
       this.isEmailInvalid = true;
       return;
     }
+
     this._navigationService.sendNewsletter({ email: this.footerEmailSub })
       .subscribe((result: any) => {
         if(result.status == 422) {
@@ -58,6 +61,7 @@ export class NavigationComponent implements OnInit {
           return;
         }
         if(result.success == true) {
+          this._googleAnalyticsService.eventEmitter("newsletter_signup", "new_lead", "footer");
           this.submittedFooterNewsletter = true;
           this.formErrorFooterNewsletter = false;
           this.isEmailInvalid = false;

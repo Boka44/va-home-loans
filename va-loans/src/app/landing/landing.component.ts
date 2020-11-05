@@ -9,6 +9,8 @@ import {
   SwiperPaginationInterface
 } from 'ngx-swiper-wrapper';
 import { LandingService } from './landing.service';
+import { GoogleAnalyticsService } from '../google-analytics.service';
+
 
 @Component({
   selector: 'app-landing',
@@ -21,7 +23,8 @@ export class LandingComponent implements OnInit {
   constructor(
       config: NgbCarouselConfig, 
       public sanitizer: DomSanitizer,
-      private _landingService: LandingService
+      private _landingService: LandingService,
+      private _googleAnalyticsService: GoogleAnalyticsService
     ) {
     // customize default values of carousels used by this component tree
     // this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.video_link);
@@ -188,6 +191,7 @@ export class LandingComponent implements OnInit {
           return;
         }
         if(result.success == true) {
+          this._googleAnalyticsService.eventEmitter("newsletter_signup", "new_lead", 'home_page');
           this.submittedSub = true;
           this.contactErrorSub = false;
           this.isEmailInvalidSub = false;
@@ -209,6 +213,7 @@ export class LandingComponent implements OnInit {
           return;
         }
         if(result.success == true) {
+          this._googleAnalyticsService.eventEmitter("contact_form_submission", "new_lead", 'home_page');
           this.submitted = true;
           this.contactError = false;
           this.isEmailInvalid = false;

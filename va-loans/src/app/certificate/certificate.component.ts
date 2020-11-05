@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CertificateService } from './certificate.service';
+import { GoogleAnalyticsService } from '../google-analytics.service';
 
 @Component({
   selector: 'app-certificate',
@@ -9,7 +10,8 @@ import { CertificateService } from './certificate.service';
 export class CertificateComponent implements OnInit {
 
   constructor(
-    private _certificateService: CertificateService
+    private _certificateService: CertificateService,
+    private _googleAnalyticsService: GoogleAnalyticsService
   ) { }
 
   isLoaded = false;
@@ -59,6 +61,7 @@ export class CertificateComponent implements OnInit {
           return;
         }
         if(result.success == true) {
+          this._googleAnalyticsService.eventEmitter("certificate_of_eligibility_request", "new_lead", 'certificate_page');
           this.submitted = true;
           this.formError = false;
           this.isEmailInvalid = false;

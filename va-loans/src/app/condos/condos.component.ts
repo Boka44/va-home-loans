@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { GoogleAnalyticsService } from '../google-analytics.service';
 import { CondosService } from './condos.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { CondosService } from './condos.service';
 export class CondosComponent implements OnInit {
 
   constructor(
-    private _condosService: CondosService
+    private _condosService: CondosService,
+    private _googleAnalyticsService: GoogleAnalyticsService
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +54,7 @@ export class CondosComponent implements OnInit {
     } else {
       this.isFiltered = true;
       this.getAllCondosWithFilter(this.pagination, this.searchInput, this.filterBy);
+      this._googleAnalyticsService.eventEmitter("condo_search_request", "search", this.searchInput + " : " + this.filterBy);
     }
   }
 
@@ -85,6 +88,7 @@ export class CondosComponent implements OnInit {
   }
 
   listingBtn(link) {
+    this._googleAnalyticsService.eventEmitter("condo_listing_link_click", "outbound_link", link);
     window.location.href = link;
   }
 
@@ -120,97 +124,5 @@ export class CondosComponent implements OnInit {
 
   condosData = [];
 
-  condos = [
-    // {
-    //   img: "/assets/images/1.jpg",
-    //   address: "1903 Via Madonna",
-    //   city: "Lomita",
-    //   zip: "90717",
-    //   state: "CA",
-    //   description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd ",
-    //   beds: 2,
-    //   baths: 2,
-    //   square_feet: 19208,
-    //   external_link: "https://www.dawnsellssandiego.com/property/200046181/",
-    //   price: 329999
-    // },
-    // {
-    //   img: "/assets/images/2.jpg",
-    //   address: "1903 Via Madonna",
-    //   city: "Lomita",
-    //   zip: "90717",
-    //   state: "CA",
-    //   description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd ",
-    //   beds: 8,
-    //   baths: 0,
-    //   square_feet: 192,
-    //   external_link: "https://www.dawnsellssandiego.com/property/200046181/",
-    //   price: 329999
-    // },
-    // {
-    //   img: "/assets/images/5.jpg",
-    //   address: "1903 Via Madonna",
-    //   city: "Lomita",
-    //   zip: "90717",
-    //   state: "CA",
-    //   description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd ",
-    //   beds: 2,
-    //   baths: 2,
-    //   square_feet: 19208,
-    //   external_link: "https://www.dawnsellssandiego.com/property/200046181/",
-    //   price: 329999
-    // },
-    // {
-    //   img: "/assets/images/4.jpg",
-    //   address: "1903 Via Madonna",
-    //   city: "Lomita",
-    //   zip: "90717",
-    //   state: "CA",
-    //   description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd ",
-    //   beds: 2,
-    //   baths: 2,
-    //   square_feet: 19208,
-    //   external_link: "https://www.dawnsellssandiego.com/property/200046181/",
-    //   price: 329999
-    // },
-    // {
-    //   img: "/assets/images/3.jpg",
-    //   address: "1903 Via Madonna",
-    //   city: "Lomita",
-    //   zip: "90717",
-    //   state: "CA",
-    //   description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd ",
-    //   beds: 2,
-    //   baths: 2,
-    //   square_feet: 19208,
-    //   external_link: "https://www.dawnsellssandiego.com/property/200046181/",
-    //   price: 329999
-    // },
-    // {
-    //   img: "/assets/images/1.jpg",
-    //   address: "1903 Via Madonna",
-    //   city: "Lomita",
-    //   zip: "90717",
-    //   state: "CA",
-    //   description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd ",
-    //   beds: 2,
-    //   baths: 2,
-    //   square_feet: 19208,
-    //   external_link: "https://www.dawnsellssandiego.com/property/200046181/",
-    //   price: 329999
-    // },
-    // {
-    //   img: "/assets/images/2.jpg",
-    //   address: "1903 Via Madonna",
-    //   city: "Lomita",
-    //   zip: "90717",
-    //   state: "CA",
-    //   description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd ",
-    //   beds: 3,
-    //   baths: 2,
-    //   square_feet: 19208,
-    //   external_link: "https://www.dawnsellssandiego.com/property/200046181/",
-    //   price: 329999
-    // },
-  ];
+  condos = [];
 }

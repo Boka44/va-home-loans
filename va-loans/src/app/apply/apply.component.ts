@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplyService } from './apply.service';
+import { GoogleAnalyticsService } from '../google-analytics.service';
 
 @Component({
   selector: 'app-apply',
@@ -8,7 +9,10 @@ import { ApplyService } from './apply.service';
 })
 export class ApplyComponent implements OnInit {
 
-  constructor(private _applyService: ApplyService) { }
+  constructor(
+    private _applyService: ApplyService,
+    private _googleAnalyticsService: GoogleAnalyticsService
+    ) { }
 
   isLoaded = false;
 
@@ -19,6 +23,7 @@ export class ApplyComponent implements OnInit {
   link = "https://www.financeany1.com/rpollorena/";
 
   applyBtn() {
+    this._googleAnalyticsService.eventEmitter("apply_button_click", "outbound_link", this.link);
     window.location.href = this.link;
   }
 
