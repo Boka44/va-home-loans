@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title, Meta} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -58,36 +58,106 @@ const routes: Routes = [
     path: '', 
     component: NavigationComponent,
     children: [
-      { path: 'home', component: LandingComponent },
-      { path: 'team', component: TeamComponent },
+      { 
+        path: 'home', 
+        component: LandingComponent,
+        data: {
+          title: "Home",
+          description: "Va Loan info, applications, Certificate of Eligibility, get your free consultation today."
+        } 
+      },
+      { 
+        path: 'team', 
+        component: TeamComponent,
+        data: {
+          title: "Team",
+          description: "Meet the team that gets you the best rates."
+        }  
+      },
       { path: 'qualify', 
         component: ServicesComponent,
         children: [
           { path: '',   redirectTo: 'apply', pathMatch: 'full' }, 
-          { path: 'apply', component: ApplyComponent },
-          { path: 'book-appointment', component: AppointmentComponent },
-          { path: 'certificate-of-eligibility', component: CertificateComponent },
+          { 
+            path: 'apply', 
+            component: ApplyComponent,
+            data: {
+              title: "Apply",
+              description: "Apply today for your VA Loan"
+            } 
+          },
+          { 
+            path: 'book-appointment', 
+            component: AppointmentComponent,
+            data: {
+              title: "Book Appointment",
+              description: "Get your free consultation today."
+            }  
+          },
+          { 
+            path: 'certificate-of-eligibility', 
+            component: CertificateComponent,
+            data: {
+              title: "Certificate of Eligibility",
+              description: "Request a Certificate of Eligibility, and we will contact you within 24 hours."
+            } 
+          },
         ]
       },
-      { path: 'contact', component: ContactComponent },
-      { path: 'blog', component: BlogComponent },
-      { path: 'blog-post/:id', component: BlogPostComponent },
-      { path: 'condos', component: CondosComponent },
-      { path: 'mortgage-calculator', component: MortgageCalcComponent },
+      { 
+        path: 'contact', 
+        component: ContactComponent,
+        data: {
+          title: "Contact",
+          description: "Contact us for everything Va Loans."
+        }  
+      },
+      { 
+        path: 'blog', 
+        component: BlogComponent,
+        data: {
+          title: "Blog",
+          description: "Get Debriefed on the Latest VA Loan Information and Housing Market Stats."
+        }  
+      },
+      { 
+        path: 'blog-post/:id', 
+        component: BlogPostComponent,
+        data: {
+          title: "Blog Post",
+          description: "Get Debriefed on the Latest VA Loan Information and Housing Market Stats."
+        }   
+      },
+      { 
+        path: 'condos', 
+        component: CondosComponent,
+        data: {
+          title: "VA Approved Condos",
+          description: "Pre Approved VA Condos withing our network."
+        }  
+      },
+      { 
+        path: 'mortgage-calculator', 
+        component: MortgageCalcComponent,
+        data: {
+          title: "Mortgage Calculator",
+          description: "Interactive Mortgage Calculator"
+        }   
+      },
       { path: '',   redirectTo: 'home', pathMatch: 'full' }, 
     ]
   },
-  { path: 'home', component: LandingComponent },
-  { path: 'team', component: TeamComponent },
-  { path: 'qualify', component: ServicesComponent },
-  { path: 'apply', component: ApplyComponent },
-  { path: 'book-appointment', component: AppointmentComponent },
-  { path: 'certificate-of-eligibility', component: CertificateComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'blog-post/:id', component: BlogPostComponent },
-  { path: 'condos', component: CondosComponent },
-  { path: 'mortgage-calculator', component: MortgageCalcComponent },
+  // { path: 'home', component: LandingComponent },
+  // { path: 'team', component: TeamComponent },
+  // { path: 'qualify', component: ServicesComponent },
+  // { path: 'apply', component: ApplyComponent },
+  // { path: 'book-appointment', component: AppointmentComponent },
+  // { path: 'certificate-of-eligibility', component: CertificateComponent },
+  // { path: 'contact', component: ContactComponent },
+  // { path: 'blog', component: BlogComponent },
+  // { path: 'blog-post/:id', component: BlogPostComponent },
+  // { path: 'condos', component: CondosComponent },
+  // { path: 'mortgage-calculator', component: MortgageCalcComponent },
   { path: '',   redirectTo: 'home', pathMatch: 'full' }, 
   { path: '**', component: PageNotFoundComponent },
 ];
@@ -152,7 +222,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     BlogService,
     BlogPostService,
     CondosService,
-    NavigationService
+    NavigationService,
+    Title, 
+    Meta
   ],
   bootstrap: [AppComponent]
 })
