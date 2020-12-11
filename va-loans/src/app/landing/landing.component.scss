@@ -169,8 +169,8 @@
                     font-size: 40px;
                 }
 
-                @media (max-width: 800px) {
-                    font-size: 30px;
+                @media (max-width: 600px) {
+                    font-size: 20px;
                 }
             }
 
@@ -356,7 +356,7 @@
                     color: darkgrey;
                     font-size: 26px;
                     font-family: $font-light-italic;
-                    margin-bottom: 20px;
+                    margin-bottom: 30px;
                     height: 285px;
                     margin-top: 80px;
 

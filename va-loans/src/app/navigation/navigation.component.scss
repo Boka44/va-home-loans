@@ -25,7 +25,11 @@
         }
         img {
             outline: none;
-            height: $nav-height - 15;
+            height: $nav-height - 15px;
+
+            @media(max-width: 800px) {
+                height: $nav-height - 20px !important;
+            }
             
             :hover {
                 cursor: pointer;
