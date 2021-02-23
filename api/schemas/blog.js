@@ -83,6 +83,9 @@ blogSchema.getBlogPost = (id) => {
                         image {
                             full_url
                         }
+                        seo_title
+                        seo_description
+                        seo_tags
                     }
                 }
             }`
